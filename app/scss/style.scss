@@ -1,8 +1,8 @@
-@import 'vars';
-@import 'fonts'; 
-@import 'reset';
-@import 'global';
+@use 'vars';
+@use 'fonts'; 
+@use 'reset';
+@use 'global';
 
 
 
-@import 'media';
+@use 'media';
