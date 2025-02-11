@@ -2,8 +2,87 @@
 @use 'fonts'; 
 @use 'reset';
 @use 'global';
-
-
-
 @use 'media';
 
+
+
+.notification {
+  width: 100%;
+  padding: 15px 0;
+  background-color: #D0E8F9;
+  &__text {
+    text-align: center;
+    line-height: 25px;
+    font-size: 16px;
+  }
+}
+
+.header__inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.menu {
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item + &__item {
+    margin-left: 30px;
+  }
+
+  &__link {
+    font-size: 16px;
+    color: #383838;
+    line-height: 25px;
+    text-decoration: none;
+
+    &:hover {
+      color: #0DA3FF;
+    }
+  }
+}
+
+.contact{
+  display: flex;
+  &__info{
+    margin-right: 30px;
+  }
+  &__info a{
+    color: #0DA3FF;
+    font-size: 18px;
+    line-height: 25px;
+  }
+  &__info p{
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(56,56,56,.514);
+  }
+  &__btn{
+    border: none;
+    background-color: transparent;
+    color:#fff;
+    background-color: #0DA3FF;
+    border-radius: 32px;
+    padding: 15px 25px;
+    cursor: pointer;
+  }
+}
+
+.hero{
+  padding: 140px 0;
+  background-image: url(../images/hero-bg.webp);
+  background-repeat: no-repeat;
+  display: flex;
+  &__content{
+
+  }
+  &__right{
+    margin-right: 90px;
+  }
+}
