@@ -8,6 +8,7 @@
   width: 100%;
   padding: 15px 0;
   background-color: #D0E8F9;
+
   &__text {
     text-align: center;
     line-height: 25px;
@@ -16,7 +17,7 @@
   }
 }
 
-.header__inner{
+.header__inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,7 +32,7 @@
     margin: 0;
   }
 
-  &__item + &__item {
+  &__item+&__item {
     margin-left: 30px;
   }
 
@@ -40,6 +41,7 @@
     color: #383838;
     line-height: 25px;
     text-decoration: none;
+    transition: all .3s;
 
     &:hover {
       color: #0DA3FF;
@@ -47,25 +49,29 @@
   }
 }
 
-.contact{
+.contact {
   display: flex;
-  &__info{
+
+  &__info {
     margin-right: 30px;
   }
-  &__info a{
+
+  &__info a {
     color: #0DA3FF;
     font-size: 18px;
     line-height: 25px;
   }
-  &__info p{
+
+  &__info p {
     font-size: 14px;
     line-height: 20px;
-    color: rgba(56,56,56,.514);
+    color: rgba(56, 56, 56, .514);
   }
-  &__btn{
+
+  &__btn {
     border: none;
     background-color: transparent;
-    color:#fff;
+    color: #fff;
     background-color: #0DA3FF;
     border-radius: 32px;
     padding: 15px 25px;
@@ -73,16 +79,88 @@
   }
 }
 
-.hero{
-  padding: 140px 0;
+.hero {
+  display: flex;
   background-image: url(../images/hero-bg.webp);
   background-repeat: no-repeat;
-  display: flex;
-  &__content{
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
   }
-  &__right{
+
+  &__content {
+    padding: 90px 0;
+  }
+
+  &__title {
+    font-size: 62px;
+    font-weight: 600;
+    line-height: 65px;
+    color: #383838;
+    max-width: 535px;
+    margin-bottom: 40px;
+  }
+
+  &__right {
     margin-right: 90px;
+  }
+
+  &__text {
+    margin-bottom: 70px;
+  }
+
+  &__text p {
+    font-size: 18px;
+    color: #383838;
+    line-height: 25px;
+    padding-left: 40px;
+    position: relative;
+    margin-bottom: 15px;
+  }
+
+  &__text p::after {
+    content: "";
+    height: 30px;
+    width: 25px;
+    left: 0px;
+    top: 0px;
+    display: block;
+    position: absolute;
+    background: url('../images/icons/check.svg');
+  }
+
+  &__buttons button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__buttons .button--help {
+    width: 206px;
+    height: 55px;
+    background-color: #0DA3FF;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 32px;
+    margin-right: 20px
+  }
+
+  &__buttons .button--call {
+    width: 206px;
+    height: 55px;
+    color: #0DA3FF;
+    font-weight: 600;
+    outline: 1px solid #0DA3FF;
+    border-radius: 32px;
   }
 }
 
+.service{
+  padding: 140px 0;
+  
+}
