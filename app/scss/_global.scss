@@ -1,8 +1,8 @@
 .container {
-    margin: 0 auto;
-    max-width: 1230px;
-    padding: 0 15px;
-    width: 100%;
+  margin: 0 auto;
+  max-width: 1230px;
+  padding: 0 15px;
+  width: 100%;
 }
 
 body {
@@ -11,3 +11,9 @@ body {
   font-weight: 400;
 }
 
+.section-title {
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 55px;
+  color: #383838;
+}
