@@ -3,7 +3,6 @@
 @use 'media';
 
 
-
 .notification {
   width: 100%;
   padding: 15px 0;
@@ -371,4 +370,20 @@
     left: 0;
     bottom: 12px;
   }
+  &__slider{
+    width: 590px;
+    height: 460px;
+    position: relative;
+  }
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  display: none;
+}
+
+.about__slider-prev{
+  width: 39px;
+  height: 30px;
+  background-color: red;
 }
