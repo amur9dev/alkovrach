@@ -10,11 +10,27 @@ const swiper = new Swiper('.about__slider', {
 
 Fancybox.bind("[data-fancybox]", {});
 
-//дописать настройки для fancybox
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const photoSlider = new Swiper(".personal__photo-slider", {
+    slidesPerView: 1, // Отображаем 3 фото
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+  });
 
+  const infoSlider = new Swiper(".personal__info-slider", {
+    slidesPerView: 1,
+    loop: true,
+    navigation: false,
+  });
 
-
+  // Синхронизация слайдеров
+  photoSlider.controller.control = infoSlider;
+  infoSlider.controller.control = photoSlider;
+});
 
 

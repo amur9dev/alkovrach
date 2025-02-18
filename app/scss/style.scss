@@ -439,9 +439,49 @@
     transition: all 0.4s ease;
   }
 }
+
 .about__item:hover .about__item-link::before {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+
+
+
+
+
+
+.personal {
+  padding-bottom: 140px;
+  position: relative;
+
+  &__title {
+    max-width: 508px;
+    margin-bottom: 50px;
+  }
+
+  &__photo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 360px;
+    z-index: 1;
+  
+  }
+
+  .personal__photo-slider {
+    width: 100%;
+  }
+
+  .personal__photo-item {
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
 }
 
