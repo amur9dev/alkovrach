@@ -8,6 +8,10 @@ const swiper = new Swiper('.about__slider', {
   }
 });
 
+Fancybox.bind("[data-fancybox]", {});
+
+//дописать настройки для fancybox
+
 
 
 

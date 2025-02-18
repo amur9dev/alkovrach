@@ -311,18 +311,26 @@
 .about {
   padding: 140px 0;
   background-color: #F1F8FD;
-  &__inner {
+  margin-bottom: 100px;
+
+  &__top {
     display: flex;
+    padding-bottom: 50px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #DDEBF4;
   }
+
   &__title {
     margin-bottom: 25px;
   }
+
   &__text {
     font-size: 16px;
     line-height: 25px;
     color: #383838;
     margin-bottom: 40px;
   }
+
   &__info {
     display: flex;
     flex-direction: column;
@@ -330,10 +338,12 @@
     max-width: 550px;
     position: relative;
   }
+
   &__info li {
     margin-bottom: 25px;
     padding-left: 52px;
   }
+
   &__info-txt--man::before {
     content: '';
     position: absolute;
@@ -343,6 +353,7 @@
     left: 0;
     top: -10px;
   }
+
   &__info-txt--case::before {
     content: '';
     position: absolute;
@@ -352,6 +363,7 @@
     left: 0;
     top: 36px;
   }
+
   &__info-txt--list::before {
     content: '';
     position: absolute;
@@ -361,6 +373,7 @@
     left: 0;
     bottom: 58px;
   }
+
   &__info-txt--lic::before {
     content: '';
     position: absolute;
@@ -370,20 +383,65 @@
     left: 0;
     bottom: 12px;
   }
-  &__slider{
+
+  &__slider {
+    border-radius: 20px;
     width: 590px;
-    height: 460px;
+    height: auto;
+    object-fit: cover;
+
+    &-inner {}
+
+    &-prev {}
+
+    &-next {}
+  }
+
+  &__documents {
+    &-title {
+      margin-bottom: 30px;
+    }
+
+    &-inner {
+      display: flex;
+      gap: 20px;
+    }
+  }
+
+  &__item-link {
+    max-width: 285px;
+    max-height: 385px;
+    display: block;
     position: relative;
   }
+
+  &__item-img {
+    width: 285px;
+    height: 385px;
+    object-fit: cover;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__item-link::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url('../images/icons/zoom.svg');
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+  }
+}
+.about__item:hover .about__item-link::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
 }
 
-.swiper-button-next:after,
-.swiper-button-prev:after {
-  display: none;
-}
-
-.about__slider-prev{
-  width: 39px;
-  height: 30px;
-  background-color: red;
-}

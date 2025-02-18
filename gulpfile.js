@@ -13,6 +13,7 @@ const clean = require('gulp-clean');
 function scripts() {
   return src([
     'node_modules/swiper/swiper-bundle.min.js',
+    'node_modules/@fancyapps/ui/dist/fancybox/fancybox.umd.js',
     'app/js/main.js',
   ])
     .pipe(concat('main.min.js'))
@@ -40,8 +41,9 @@ function images() {
 
 function styles() {
   return src([
-    'app/scss/style.scss',
-    'node_modules/swiper/swiper-bundle.min.css'
+    'app/scss/style.scss',    
+    'node_modules/swiper/swiper-bundle.min.css',
+    'node_modules/@fancyapps/ui/dist/fancybox/fancybox.css',
   ])
     .pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'] }))
     .pipe(concat('style.min.css'))
