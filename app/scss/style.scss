@@ -449,39 +449,35 @@
 
 
 
-
-
-
-
-
 .personal {
   padding-bottom: 140px;
-  position: relative;
 
-  &__title {
-    max-width: 508px;
-    margin-bottom: 50px;
+  &__inner {
+    gap: 100px;
+    display: flex;
   }
 
-  &__photo-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 360px;
-    z-index: 1;
-  
+  &__info {
+    display: flex;
+    flex-direction: column;
+    max-width: 480px;
+    position: static;
+    overflow: hidden;
   }
 
-  .personal__photo-slider {
-    width: 100%;
+  &__container {
+    display: flex;
+    max-width: 100%;
+    max-height: 460px;
+    flex-direction: column;
+    padding-left: calc(50vw - 600px);
   }
 
-  .personal__photo-item {
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
+  &__photo {
+    max-height: 460px;
+    max-width: 50%;
+
+
+    &-item img {}
   }
 }
-
