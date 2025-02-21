@@ -31,3 +31,10 @@ const infoSlider = new Swiper('.personal__info', {
 
 photoSlider.controller.control = infoSlider;
 infoSlider.controller.control = photoSlider;
+
+
+
+
+
+
+

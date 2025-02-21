@@ -451,18 +451,49 @@
 
 .personal {
   padding-bottom: 140px;
+  &__title{
+    min-width: 508px;
+    line-height: 55px;
+    margin-bottom: 50px;
+  }
 
   &__inner {
     gap: 100px;
     display: flex;
+
   }
 
   &__info {
+    background-color: #F1F8FD;
+    max-height: 150px;
+    max-width: 488px;
+    border-radius: 15px;
+    padding: 30px 0px 30px 30px;
     display: flex;
     flex-direction: column;
     max-width: 480px;
     position: static;
     overflow: hidden;
+    position: relative;
+    &-title{
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 30px;
+      margin-bottom: 15px;
+    }
+    &-details{
+      font-size: 16px;
+      line-height: 25px;
+      color: #383838;
+    }
+    &-details span{
+      color:#0DA3FF;
+      font-weight: 600;
+      line-height: 25px;
+    }
+    &-btn{
+      position: absolute;
+    }
   }
 
   &__container {
@@ -481,3 +512,8 @@
     &-item img {}
   }
 }
+
+
+
+
+
