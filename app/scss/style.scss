@@ -451,7 +451,8 @@
 
 .personal {
   padding-bottom: 140px;
-  &__title{
+
+  &__title {
     min-width: 508px;
     line-height: 55px;
     margin-bottom: 50px;
@@ -475,23 +476,27 @@
     position: static;
     overflow: hidden;
     position: relative;
-    &-title{
+
+    &-title {
       font-size: 24px;
       font-weight: 600;
       line-height: 30px;
       margin-bottom: 15px;
     }
-    &-details{
+
+    &-details {
       font-size: 16px;
       line-height: 25px;
       color: #383838;
     }
-    &-details span{
-      color:#0DA3FF;
+
+    &-details span {
+      color: #0DA3FF;
       font-weight: 600;
       line-height: 25px;
     }
-    &-btn{
+
+    &-btn {
       position: absolute;
     }
   }
@@ -515,5 +520,69 @@
 
 
 
+.advantage {
+  padding: 140px 0;
+  background-color: #F1F8FD;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+  }
+
+  &-img img {
+    object-fit: cover;
+    height: 100%;
+    max-width: 550px;
+    width: 100%;
+    border-radius: 20px;
+    margin-right: 60px;
+  }
+
+  &__title {
+    max-width: 590px;
+    margin-bottom: 25px;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    color: #383838;
+    line-height: 25px;
+    margin-bottom: 50px;
+    max-width: 590px;
+  }
+
+  &__text-title {
+    margin-bottom: 20px;
+    line-height: 30px;
+    font-size: 24px;
+    margin-bottom: 20px;
+    max-width: 590px;
+  }
+
+  &__text-item {
+    font-size: 16px;
+    line-height: 25px;
+    color: #383838;
+    margin-bottom: 25px;
+    max-width: 590px;
+  }
+
+  &__text-item {
+    padding-left: 10px;
+    border-left: 2px solid #0DA3FF;
+  }
+
+  &__text-item:last-child {
+    margin-bottom: 0;
+  }
 
 
+  &-form {
+    width: 100%;
+    background-color: #0DA3FF;
+    border-radius: 20px;
+  }
+
+
+}
