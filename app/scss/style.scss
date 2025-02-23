@@ -522,6 +522,7 @@
 
 .advantage {
   padding: 140px 0;
+  margin-bottom: 140px;
   background-color: #F1F8FD;
 
   &__inner {
@@ -578,11 +579,149 @@
   }
 
 
+
   &-form {
     width: 100%;
-    background-color: #0DA3FF;
+    background: linear-gradient(92deg, #0095f1, #0da3ff 103.58%, #0da3ff 0);
     border-radius: 20px;
+    padding: 45px 50px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    &__title {
+      font-size: 32px;
+      line-height: 35px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 20px;
+      max-width: 435px;
+      text-transform: uppercase;
+    }
+
+    &__info p {
+      font-size: 16px;
+      color: #fff;
+      line-height: 25px;
+      margin-bottom: 15px;
+      max-width: 500px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    &__main {
+      gap: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 500px;
+
+    }
+
+    &__input {
+      padding: 15px 20px;
+      max-width: 240px;
+      border-radius: 32px;
+      outline: none;
+      border: none;
+      background-color: #52BCFC;
+      color: #fff;
+
+      &::placeholder {
+        color: #fff;
+        font-size: 16px;
+        line-height: 25px;
+      }
+    }
+
+    &__btn {
+      flex-grow: 1;
+      height: 55px;
+      background-color: #fff;
+      border-radius: 32px;
+      color: #0DA3FF;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      line-height: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    &__btn {
+      margin-bottom: 15px;
+    }
   }
 
+  &-form::after {
+    content: "";
+    position: absolute;
+    background-image: url('../images/form-decor.svg');
+    background-size: cover;
+    width: 4px;
+    height: 100%;
+    left: 50%;
+    bottom: 5px;
+    top: 5px;
+  }
 
+  &-politics {
+    font-size: 14px;
+    line-height: 25px;
+    color: hsla(0, 0%, 100%, .506);
+    max-width: 445px;
+  }
+
+  &-politics a {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: all .3s;
+  }
+
+  &-politics a:hover {
+    color: #fff;
+  }
 }
+
+
+.question {
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &-list {}
+
+  &-inner {
+    display: flex;
+    gap: 20px;
+
+  }
+
+  &-item {
+    width: 790px;
+    height: 80px;
+    padding: 25px 30px; 
+    border-radius: 10px;
+    box-shadow: 0 0 7.3px 0 rgba(180, 204, 221, .5);
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+
+
+    &__title {
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 600;
+      color: #383838;
+    }
+
+    &__text {
+      display: none;
+    }
+  }
+}
+
+
+

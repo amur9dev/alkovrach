@@ -35,6 +35,13 @@ infoSlider.controller.control = photoSlider;
 
 
 
+const questionItems = document.querySelectorAll('.question-item');
 
+// Добавляем обработчик события для каждого элемента
+questionItems.forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('question-item--active'); // Переключаем класс 'active'
+  });
+});
 
 
