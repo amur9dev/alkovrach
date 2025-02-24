@@ -34,14 +34,18 @@ infoSlider.controller.control = photoSlider;
 
 
 
-
 const questionItems = document.querySelectorAll('.question-item');
 
-// Добавляем обработчик события для каждого элемента
 questionItems.forEach(item => {
   item.addEventListener('click', () => {
-    item.classList.toggle('question-item--active'); // Переключаем класс 'active'
+    item.classList.toggle('question-item--active');
+
+    const text = item.querySelector('.question-item__text');
+    if (item.classList.contains('question-item--active')) {
+      text.style.display = 'block';
+    } else {
+      text.style.display = 'none';
+    }
   });
 });
-
 

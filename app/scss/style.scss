@@ -700,14 +700,12 @@
 
   &-item {
     width: 790px;
-    height: 80px;
-    padding: 25px 30px; 
+    display: block;
+    padding: 25px 30px;
     border-radius: 10px;
     box-shadow: 0 0 7.3px 0 rgba(180, 204, 221, .5);
     margin-bottom: 10px;
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
 
 
     &__title {
@@ -717,11 +715,26 @@
       color: #383838;
     }
 
-    &__text {
-      display: none;
-    }
+
   }
 }
 
 
+
+.question-item {
+  position: relative;
+}
+
+.question-item__text {
+  display: none;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.question-item--active .question-item__text {
+  display: block;
+  opacity: 1;
+  
+}
 
