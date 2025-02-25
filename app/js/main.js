@@ -1,3 +1,6 @@
+
+
+
 const swiper = new Swiper('.about__slider', {
   loop: true,
   slidesPerView: 1, 
@@ -34,18 +37,36 @@ infoSlider.controller.control = photoSlider;
 
 
 
-const questionItems = document.querySelectorAll('.question-item');
+const questionList = document.querySelector('.question-list');
 
-questionItems.forEach(item => {
-  item.addEventListener('click', () => {
-    item.classList.toggle('question-item--active');
+questionList.addEventListener('click', (event) => {
+  const clickedItem = event.target.closest('.question-item');
 
-    const text = item.querySelector('.question-item__text');
-    if (item.classList.contains('question-item--active')) {
-      text.style.display = 'block';
-    } else {
-      text.style.display = 'none';
+  if (!clickedItem) return;
+
+  document.querySelectorAll('.question-item').forEach(item => {
+    if (item !== clickedItem) {
+      item.classList.remove('question-item--active');
+      item.querySelector('.question-item__text').style.maxHeight = null;
     }
   });
+
+  clickedItem.classList.toggle('question-item--active');
+  const textBlock = clickedItem.querySelector('.question-item__text');
+
+  if (clickedItem.classList.contains('question-item--active')) {
+    textBlock.style.maxHeight = textBlock.scrollHeight + "px";
+  } else {
+    textBlock.style.maxHeight = null;
+  }
 });
+
+
+
+
+
+
+
+
+
 
