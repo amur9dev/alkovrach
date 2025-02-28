@@ -787,25 +787,27 @@
     border: none;
     color: #9CB4C5;
   }
-  &-form__btn{
+
+  &-form__btn {
     height: 55px;
     background-color: #0DA3FF;
-    color: #FFF;  
+    color: #FFF;
     line-height: 25px;
     font-weight: 600;
     border-radius: 32px;
     border: none;
-    outline: none;;
+    outline: none;
+    ;
     cursor: pointer;
     margin-bottom: 30px;
   }
 
-  &-form__politic{
+  &-form__politic {
     font-size: 13px;
     color: #9CB4C5;
   }
 
-  &-form__politic .politic-popup{
+  &-form__politic .politic-popup {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -825,3 +827,129 @@
 
 
 
+.reviews {
+  margin-bottom: 140px;
+
+  &__title {
+    margin-bottom: 35px;
+  }
+
+  &__inner {
+    width: 100%;
+  }
+
+  &-item {
+    padding: 30px;
+    background-color: #F1F8FD;
+    border-radius: 20px;
+    max-width: 530px;
+
+  }
+
+  &-item::after {
+    content: '';
+    position: absolute;
+    background-image: url('../images/reviews-decor.svg');
+    width: 26px;
+    height: 20px;
+    right: 35px;
+    top: -5px;
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    color: 383838;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    line-height: 25px;
+    color: #383838;
+    margin-bottom: 12px;
+    position: relative;
+    height: 150px;
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+    color: #0DA3FF;
+    font-weight: 600;
+    line-height: 25px;
+    padding: 0 0 3px;
+    transition: all .3s;
+  }
+
+  &__btn:hover {
+    color: #0DA3FF;
+    box-shadow: inset 0 -1.5px 0 #0DA3FF;
+    cursor: pointer;
+  }
+
+  &__date {
+    line-height: 25px;
+    color: #7192A9;
+    display: block;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #DDEBF4;
+  }
+}
+
+
+.bottom-form {
+  padding: 100px 0;
+  background: linear-gradient(92deg, #0095f1, #0da3ff 103.58%, #0da3ff 0);
+
+  &__title {
+    color: #FFF;
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    line-height: 30px;
+    color: #FFF;
+    margin-bottom: 40px;
+  }
+
+  &__main {
+    width: 697px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  &__input {
+    background-color: #50B8F9;
+    height: 55px;
+    border: none;
+    outline: none;
+    min-width: calc(50% - 20px);
+    border-radius: 32px;
+    padding: 15px 20px;
+    cursor: pointer;
+    color: #FFF;
+  }
+
+  &__input::placeholder {
+    color: #fff;
+  }
+
+  &__btn,
+  &__politic {
+    flex: 1;
+    min-width: calc(50% - 20px);
+  }
+
+  &__btn {
+    background-color: #fff;
+    padding: 0px;
+    height: 55px;
+    flex: none;
+    border: none;
+    border-radius: 32px;
+  }
+}

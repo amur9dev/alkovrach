@@ -63,6 +63,19 @@ questionList.addEventListener('click', (event) => {
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  new Swiper(".reviews__inner", {
+    slidesPerView: 2, // Отображать два элемента
+    slidesPerGroup: 1, // Перелистывать по одному
+    spaceBetween: 20, // Отступы между слайдами
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    loop: true, // Цикличный слайдер
+  });
+});
+
 
 
 
