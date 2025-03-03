@@ -16,10 +16,11 @@ Fancybox.bind("[data-fancybox]", {});
 
 
 const photoSlider = new Swiper('.personal__photo', {
-  slidesPerView: 3, 
+  slidesPerView: 3, // Оставляем 3 слайда
   slidesPerGroup: 1,
   centeredSlides: false,
   loop: true,
+  speed: 500, // Плавная анимация
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -28,15 +29,20 @@ const photoSlider = new Swiper('.personal__photo', {
 
 const infoSlider = new Swiper('.personal__info', {
   slidesPerView: 1, 
-  loop: true,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+  slidesPerGroup: 1,
+  effect: 'slide', // Делаем плавное исчезновение
+  fadeEffect: {
+    crossFade: true, // Убирает резкий переход
   },
+  speed: 500, // Плавная анимация
+  allowTouchMove: false, // Отключаем свайпы, так как он синхронизируется с фото
 });
 
-photoSlider.controller.control = infoSlider;
-infoSlider.controller.control = photoSlider;
+photoSlider.on('slideChange', () => {
+  infoSlider.slideTo(photoSlider.realIndex);
+});
+
+
 
 
 
