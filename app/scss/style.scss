@@ -313,11 +313,13 @@
   background-color: #F1F8FD;
   margin-bottom: 100px;
 
+
   &__top {
     display: flex;
     padding-bottom: 50px;
     margin-bottom: 40px;
     border-bottom: 1px solid #DDEBF4;
+    position: relative;
   }
 
   &__title {
@@ -389,12 +391,61 @@
     width: 590px;
     height: auto;
     object-fit: cover;
+  }
 
-    &-inner {}
+  //стрелки слайдера about
 
-    &-prev {}
+  &__btn-inner {
+    position: absolute;
+    width: 125px;
+    height: 60px;
+    bottom: 60px;
+    right: 40px;
+    border-radius: 30px;
+    background-color: #fff;
+    z-index: 10;
+  }
 
-    &-next {}
+  &__btn-inner &__slider-prev,
+  &__btn-inner &__slider-next {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0DA3FF;
+    z-index: 10;
+    top: 28px;
+    transition: all .3s;
+  }
+
+  &__btn-inner &__slider-prev:hover,
+  &__btn-inner &__slider-next:hover {
+    opacity: 0.8;
+  }
+
+  &__slider-prev::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(45deg);
+  }
+
+  &__slider-next::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(225deg);
+  }
+
+  &__slider-prev::after,
+  &__slider-next::after {
+    display: none;
   }
 
   &__documents {
@@ -464,7 +515,17 @@
 
   }
 
-  &__info {
+  &__container {
+    display: flex;
+    max-width: 100%;
+    max-height: 460px;
+    flex-direction: column;
+    padding-left: calc(50vw - 600px);
+  }
+
+
+
+  &__info{
     background-color: #F1F8FD;
     max-height: 150px;
     max-width: 488px;
@@ -476,6 +537,7 @@
     position: static;
     overflow: hidden;
     position: relative;
+
 
     &-title {
       font-size: 24px;
@@ -501,20 +563,17 @@
     }
   }
 
-  &__container {
-    display: flex;
-    max-width: 100%;
-    max-height: 460px;
-    flex-direction: column;
-    padding-left: calc(50vw - 600px);
-  }
+
 
   &__photo {
     max-height: 460px;
     max-width: 50%;
-
-
-    &-item img {}
+    overflow: hidden;
+    &-item {
+      border-radius: 15px;
+      margin-right: 20px;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, .15)
+    }
   }
 }
 
@@ -836,6 +895,57 @@
 
   &__inner {
     width: 100%;
+    position: relative;
+  }
+
+  &__inner &__prev,
+  &__inner &__next {
+    position: absolute;
+    top: -37px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0DA3FF;
+    cursor: pointer;
+    z-index: 10;
+    transition: all .3s;
+  }
+
+  &__inner &__prev {
+    left: 1080px;
+  }
+
+  &__prev::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(45deg);
+  }
+
+  &__next::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(225deg);
+  }
+
+
+  &__inner &__prev:hover,
+  &__next:hover {
+    opacity: 0.8;
+  }
+
+
+  .reviews__prev::after,
+  .reviews__next::after {
+    display: none;
   }
 
   &-item {
@@ -899,8 +1009,10 @@
 }
 
 
+
 .bottom-form {
-  padding: 100px 0;
+  padding-top: 100px;
+  padding-bottom: 67px;
   background: linear-gradient(92deg, #0095f1, #0da3ff 103.58%, #0da3ff 0);
 
   &__title {
@@ -951,5 +1063,73 @@
     flex: none;
     border: none;
     border-radius: 32px;
+    color: #0DA3FF;
+    font-weight: 600;
+    line-height: 25px;
+    cursor: pointer;
+  }
+
+  &__politic {
+    font-size: 13px;
+    line-height: 20px;
+    color: #FFFFFF;
+    opacity: 0.55;
+
+    .politic-popup {
+      cursor: pointer;
+      padding: 0;
+      color: #FFFFFF;
+      border: none;
+      background-color: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    }
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+  }
+
+  &__img {
+    max-width: 100%;
+    position: absolute;
+    margin-top: -300px;
+    z-index: 10;
   }
 }
+
+
+.footer {
+  &-top {
+    padding: 30px 0;
+    background-color: #232323;
+
+    &__text {
+      color: #fff;
+      opacity: 0.55;
+      font-size: 14px;
+      text-align: center;
+      line-height: 20px;
+      margin-bottom: 10px;
+    }
+
+    &__text:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+  &-bottom {
+    padding: 10px 0;
+    background-color: #1A1A1A;
+
+    &__text {
+      color: #FFF;
+      text-align: center;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
+
+

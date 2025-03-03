@@ -1,22 +1,25 @@
 
 
 
-const swiper = new Swiper('.about__slider', {
+const aboutSwiper = new Swiper(".about__slider", {
   loop: true,
-  slidesPerView: 1, 
+  loopAdditionalSlides: 3,
+  slidesPerView: 1,
   spaceBetween: 0,
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  }
-});
+    nextEl: ".about__slider-next",
+    prevEl: ".about__slider-prev",
+  },
+})
 
 Fancybox.bind("[data-fancybox]", {});
 
 
 const photoSlider = new Swiper('.personal__photo', {
   slidesPerView: 3, 
-  loop: true, 
+  slidesPerGroup: 1,
+  centeredSlides: false,
+  loop: true,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -25,7 +28,7 @@ const photoSlider = new Swiper('.personal__photo', {
 
 const infoSlider = new Swiper('.personal__info', {
   slidesPerView: 1, 
-  loop: true, 
+  loop: true,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -69,8 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
     slidesPerGroup: 1, // Перелистывать по одному
     spaceBetween: 20, // Отступы между слайдами
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".reviews__next",
+      prevEl: ".reviews__prev",
     },
     loop: true, // Цикличный слайдер
   });
