@@ -525,7 +525,7 @@
 
 
 
-  &__info{
+  &__info {
     background-color: #F1F8FD;
     max-height: 150px;
     max-width: 488px;
@@ -534,7 +534,6 @@
     display: flex;
     flex-direction: column;
     max-width: 480px;
-    position: static;
     overflow: hidden;
     position: relative;
 
@@ -564,18 +563,25 @@
   }
 
 
-
   &__photo {
     max-height: 460px;
     max-width: 50%;
+
     overflow: hidden;
+
     &-item {
-      border-radius: 15px;
       margin-right: 20px;
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, .15)
+    }
+    
+
+    &-item &-img {
+      border-radius: 15px;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
+
 
 
 
@@ -1131,5 +1137,3 @@
     }
   }
 }
-
-
