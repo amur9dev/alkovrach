@@ -248,7 +248,7 @@
   }
 
   &__btn:hover {
-    background: #32B1FF;
+    opacity: 0.8;
   }
 }
 
@@ -500,6 +500,8 @@
 
 
 
+
+
 .personal {
   padding-bottom: 140px;
 
@@ -515,12 +517,21 @@
 
   }
 
+
+
   &__container {
     display: flex;
     max-width: 100%;
     max-height: 460px;
     flex-direction: column;
     padding-left: calc(50vw - 600px);
+    position: relative;
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: -100px;
+    right: 430px;
   }
 
 
@@ -565,22 +576,78 @@
 
   &__photo {
     max-height: 460px;
-    max-width: 50%;
-
+    padding: 5px;
     overflow: hidden;
-
-    &-item {
-      margin-right: 20px;
-    }
-    
+    gap: 20px;
+    border-radius: 15px;
 
     &-item &-img {
       border-radius: 15px;
       height: 100%;
       object-fit: cover;
+      -webkit-box-shadow: 0px 0px 8px 5px rgba(180, 204, 221, 0.2);
+      -moz-box-shadow: 0px 0px 8px 5px rgba(180, 204, 221, 0.2);
+      box-shadow: 0px 0px 8px 5px rgba(180, 204, 221, 0.2);
     }
   }
+
+
+
+  &__inner .personal__prev,
+  &__inner .personal__next {
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0DA3FF;
+    cursor: pointer;
+    z-index: 10;
+    transition: all .3s;
+  }
+
+
+  &__btn .personal__prev:hover,
+  &__btn .personal__next:hover {
+    opacity: 0.8;
+  }
+
+
+
+
+  &__inner .personal__prev {
+    left: -50px;
+  }
+
+  &__inner .personal__next {
+    left: 10px;
+  }
+
+  &__prev::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(45deg);
+  }
+
+  &__next::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(225deg);
+  }
+
+  &__inner .personal__prev:after,
+  &__inner .personal__next:after {
+    display: none;
+  }
 }
+
 
 
 
@@ -976,7 +1043,7 @@
     font-size: 20px;
     font-weight: 600;
     line-height: 30px;
-    color: 383838;
+    color: #383838;
     text-transform: uppercase;
   }
 

@@ -20,10 +20,13 @@ const photoSlider = new Swiper('.personal__photo', {
   slidesPerGroup: 1,
   centeredSlides: false,
   loop: true,
-  speed: 500, // Плавная анимация
+  speed: 500, 
+   spaceBetween: 20,
+   // Добавляем отступ 20px между слайдами
+ // Плавная анимадция
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.personal__next',
+    prevEl: '.personal__prev',
   },
 });
 
