@@ -1,6 +1,3 @@
-
-
-
 const aboutSwiper = new Swiper(".about__slider", {
   loop: true,
   loopAdditionalSlides: 3,

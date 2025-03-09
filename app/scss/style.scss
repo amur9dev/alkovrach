@@ -591,6 +591,9 @@
     }
   }
 
+  &__photo-item .swiper-slide-active {
+    outline: 2px solid red;
+  }
 
 
   &__inner .personal__prev,
@@ -610,8 +613,6 @@
   &__btn .personal__next:hover {
     opacity: 0.8;
   }
-
-
 
 
   &__inner .personal__prev {
