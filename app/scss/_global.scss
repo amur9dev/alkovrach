@@ -1,5 +1,3 @@
-
-
 .container {
   margin: 0 auto;
   max-width: 1230px;
@@ -19,4 +17,80 @@ body {
   font-weight: 600;
   line-height: 55px;
   color: #383838;
+}
+
+
+
+
+.form-base {
+
+  &__title {
+    color: #383838;
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    line-height: 30px;
+    color: #383838;
+    margin-bottom: 40px;
+  }
+
+  &__main {
+    width: 697px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+
+  &__input {
+    background-color: #FFFFFF;
+    height: 55px;
+    border: none;
+    outline: none;
+    min-width: calc(50% - 20px);
+    border-radius: 32px;
+    padding: 15px 20px;
+    color: #9CB4C5;
+  }
+
+  &__input::placeholder {
+    color: #9CB4C5;
+    line-height: 25px;
+  }
+
+  &__btn,
+  &__politic {
+    flex: 1;
+    min-width: calc(50% - 20px);
+  }
+
+  &__btn {
+    background-color: #0DA3FF;
+    padding: 0px;
+    height: 55px;
+    flex: none;
+    border: none;
+    border-radius: 32px;
+    color: #fff;
+    font-weight: 600;
+    line-height: 25px;
+    cursor: pointer;
+  }
+
+  &__politic {
+    font-size: 13px;
+    line-height: 20px;
+    color: #9CB4C5;
+  }
+}
+
+.politic-popup {
+  cursor: pointer;
+  padding: 0;
+  color: #9CB4C5;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #9CB4C5;
 }

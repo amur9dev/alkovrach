@@ -1,3 +1,65 @@
+// Получаем все кнопки, которые открывают модальное окно
+document.querySelectorAll(".button--help, .button--call").forEach(button => {
+  button.addEventListener("click", function () {
+    const modal = document.getElementById("modal");
+    const title = modal.querySelector(".form-base__title");
+    const submitButton = modal.querySelector(".form-base__btn");
+
+    // Меняем заголовок и текст кнопки в зависимости от нажатой кнопки
+    if (this.classList.contains("button--help")) {
+      title.textContent = "Получить помощь";
+      submitButton.textContent = "Отправить";
+    } else {
+      title.textContent = "Заказать звонок";
+      submitButton.textContent = "Получить консультацию";
+    }
+
+    modal.classList.add("open");
+  });
+});
+
+// Функция закрытия модального окна
+function closeModal() {
+  document.getElementById("modal").classList.remove("open");
+}
+
+// Закрытие по кнопке
+document.getElementById("modal__close-btn").addEventListener("click", closeModal);
+
+// Закрытие по нажатию на Esc
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
+
+// Закрытие при клике вне модального окна
+document.querySelector("#modal .modal__box").addEventListener("click", (event) => {
+  event._isClickWithInModal = true;
+});
+document.getElementById("modal").addEventListener("click", (event) => {
+  if (event._isClickWithInModal) return;
+  closeModal();
+});
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
 const aboutSwiper = new Swiper(".about__slider", {
   loop: true,
   loopAdditionalSlides: 3,
@@ -10,6 +72,18 @@ const aboutSwiper = new Swiper(".about__slider", {
 })
 
 Fancybox.bind("[data-fancybox]", {});
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 
 
 const photoSlider = new Swiper('.personal__photo', {
@@ -46,6 +120,19 @@ photoSlider.on('slideChange', () => {
 
 
 
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
 const questionList = document.querySelector('.question-list');
 
 questionList.addEventListener('click', (event) => {
@@ -69,6 +156,21 @@ questionList.addEventListener('click', (event) => {
     textBlock.style.maxHeight = null;
   }
 });
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
 
 
 
