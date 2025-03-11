@@ -105,7 +105,7 @@
     </div>
 
 
-    
+
     <section class="service">
       <div class="container">
         <h2 class="service__title section-title">Наши услуги</h2>
@@ -119,7 +119,7 @@
             </p>
             <div class="service__bottom">
               <span class="service__price">от 2400 ₽</span>
-              <button class="service__btn">Начать лечение</button>
+              <button class="service__btn" data-service="Cтандартная терапия">Начать лечение</button>
             </div>
           </div>
 
@@ -131,7 +131,7 @@
             </p>
             <div class="service__bottom">
               <span class="service__price">от 5800 ₽</span>
-              <button class="service__btn">Начать лечение</button>
+              <button class="service__btn" data-service="Усиленная терапия">Начать лечение</button>
             </div>
           </div>
 
@@ -143,7 +143,7 @@
             </p>
             <div class="service__bottom">
               <span class="service__price">от 15 800 ₽</span>
-              <button class="service__btn">Начать лечение</button>
+              <button class="service__btn" data-service="Восстановление+">Начать лечение</button>
             </div>
           </div>
 
@@ -155,7 +155,7 @@
             </p>
             <div class="service__bottom">
               <span class="service__price">от 18 800 ₽</span>
-              <button class="service__btn">Начать лечение</button>
+              <button class="service__btn" data-service="Максимальная терапия">Начать лечение</button>
             </div>
           </div>
 
@@ -167,7 +167,7 @@
             </p>
             <div class="service__bottom">
               <span class="service__price">от 3200 ₽</span>
-              <button class="service__btn">Начать лечение</button>
+              <button class="service__btn" data-service="Кодирование+">Начать лечение</button>
             </div>
           </div>
 
@@ -179,12 +179,39 @@
             </p>
             <div class="service__bottom">
               <span class="service__price">от 3500 ₽</span>
-              <button class="service__btn">Начать лечение</button>
+              <button class="service__btn" data-service="Выезд нарколога на дом">Начать лечение</button>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="modal" id="service-modal">
+      <div class="modal__box">
+        <button class="modal__close-btn" id="service-modal-close">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 1L1 19" stroke="#809BAE" stroke-width="2" />
+            <path d="M19 19L1 1" stroke="#809BAE" stroke-width="2" />
+          </svg>
+        </button>
+        <div class="form-base">
+          <h2 class="form-base__title section-title" id="service-modal-title">Название услуги</h2>
+          <h4 class="form-base__subtitle">
+            Просто оставьте заявку и мы вам перезвоним в ближайшее время
+          </h4>
+          <form class="form-base__main">
+            <input type="text" class="form-base__input" placeholder="Ваше имя">
+            <input type="tel" class="form-base__input" placeholder="+7 999-999-99-99">
+            <button class="form-base__btn">Начать лечение</button>
+            <p class="form-base__politic">
+              Нажимая кнопку «Начать лечение», вы соглашаетесь с <button class="politic-popup">политикой
+                конфиденциальности</button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
 
     <section class="stage">
       <div class="container">
@@ -550,8 +577,8 @@
                 нашей
                 работы.
                 Не стесняйтесь обращаться к нам в любое время, мы всегда готовы оказать наркологическую
-              <div class="">
-              </div>
+                <div class="">
+                </div>
               </p>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 0L12 24" stroke="#0DA3FF" stroke-width="3" />
@@ -645,6 +672,13 @@
                   бросил работу. Пришлось выводить его из запоя и отправлять на лечение, реабилитацию. Сотрудники центра
                   сделали для нашей семьи очень многое, они вылечили моего ребенка от зависимости и помогли мне пережить
                   этот сложный период.
+                  Моему сыну 28 лет, но он начал злоупотреблять алкоголем, связался с компанией таких же неприятных
+                  ребят,
+                  бросил работу. Пришлось выводить его из запоя и отправлять на лечение, реабилитацию. Сотрудники
+                  центра
+                  сделали для нашей семьи очень многое, они вылечили моего ребенка от зависимости и помогли мне
+                  пережить
+                  этот сложный период.
                 </p>
               </div>
               <button class="reviews__btn">Читать полностью</button>
@@ -674,6 +708,17 @@
         </div>
       </div>
     </section>
+
+
+    <div id="reviews-popup" class="reviews-popup">
+      <div class="reviews-popup__box">
+        <button class="reviews-popup__close-btn">Закрыть</button>
+        <h3 id="reviews-popup-title">Имя пользователя</h3>
+        <p id="reviews-popup-text">Полный текст отзыва</p>
+        <span id="reviews-popup-date">Дата отзыва</span>
+      </div>
+    </div>
+
 
     <section class="bottom-form">
       <div class="container">
