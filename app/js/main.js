@@ -1,62 +1,106 @@
-// Функция открытия модального окна
-function openModal(modalId, titleText, buttonText) {
-    const modal = document.getElementById(modalId);
-    if (!modal) return;
+function openModal(modalId, { titleText = null, buttonText = null, content = {} } = {}) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
 
-    const title = modal.querySelector(".form-base__title");
-    const submitButton = modal.querySelector(".form-base__btn");
+  const title = modal.querySelector(".form-base__title");
+  const submitButton = modal.querySelector(".form-base__btn");
 
-    if (title && titleText) title.textContent = titleText;
-    if (submitButton && buttonText) submitButton.textContent = buttonText;
+  if (title && titleText) title.textContent = titleText;
+  if (submitButton && buttonText) submitButton.textContent = buttonText;
 
-    modal.classList.add("open");
+  Object.entries(content).forEach(([selector, value]) => {
+    const element = modal.querySelector(selector);
+    if (element) element.textContent = value;
+  });
+
+  modal.classList.add("open");
+  document.addEventListener("keydown", closeOnEscape);
 }
 
-// Обработчики открытия для кнопок
-document.querySelectorAll(".button--help, .button--call").forEach(button => {
-    button.addEventListener("click", function () {
-        openModal(
-            "modal",
-            this.classList.contains("button--help") ? "Получить помощь" : "Заказать звонок",
-            this.classList.contains("button--help") ? "Отправить" : "Получить консультацию"
-        );
-    });
-});
-
-// Функция закрытия модального окна
 function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) modal.classList.remove("open");
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove("open");
+  }
+
+  if (!document.querySelector(".modal.open") && !document.getElementById("reviews-popup").classList.contains("open")) {
+    document.removeEventListener("keydown", closeOnEscape);
+  }
 }
 
-// Закрытие по кнопке
-document.getElementById("modal__close-btn")?.addEventListener("click", () => closeModal("modal"));
-document.getElementById("service-modal-close")?.addEventListener("click", () => closeModal("service-modal"));
-
-// Закрытие по нажатию на Esc
-window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        closeModal("modal");
-        closeModal("service-modal");
+function closeOnEscape(event) {
+  if (event.key === "Escape") {
+    const openModal = document.querySelector(".modal.open") || document.getElementById("reviews-popup");
+    if (openModal && openModal.classList.contains("open")) {
+      closeModal(openModal.id);
     }
+  }
+}
+
+document.body.addEventListener("click", (event) => {
+  const button = event.target.closest(".button--help, .button--call, .service__btn, .reviews__btn");
+  if (!button) return;
+
+  if (button.classList.contains("button--help")) {
+    openModal("modal", { titleText: "Получить помощь", buttonText: "Отправить" });
+  } else if (button.classList.contains("button--call")) {
+    openModal("modal", { titleText: "Заказать звонок", buttonText: "Получить консультацию" });
+  } else if (button.classList.contains("service__btn")) {
+    openModal("service-modal", { titleText: button.getAttribute("data-service") });
+  } else if (button.classList.contains("reviews__btn")) {
+    const item = button.closest(".reviews-item");
+    openModal("reviews-popup", {
+      content: {
+        "#reviews-popup-title": item.querySelector(".reviews__name").textContent,
+        "#reviews-popup-text": item.querySelector(".reviews__text").textContent.trim(),
+        "#reviews-popup-date": item.querySelector(".reviews__date").textContent
+      }
+    });
+  }
 });
 
-// Закрытие при клике вне модального окна
-document.querySelectorAll(".modal").forEach(modal => {
-    modal.addEventListener("click", function (event) {
-        if (!event.target.closest(".modal__box")) {
-            closeModal(this.id);
+document.body.addEventListener("click", (event) => {
+  if (event.target.closest(".modal__close-btn") || event.target.closest(".reviews-popup__close-btn")) {
+    closeModal(event.target.closest(".modal, .reviews-popup").id);
+  }
+});
+
+document.body.addEventListener("click", (event) => {
+  const modal = event.target.closest(".modal, .reviews-popup");
+  if (modal && !event.target.closest(".modal__box, .reviews-popup__box")) {
+    closeModal(modal.id);
+  }
+});
+
+document.querySelectorAll(".reviews-item").forEach(item => {
+  const textContainer = item.querySelector(".reviews__text");
+  const fullText = textContainer.textContent.trim();
+  const readMoreBtn = item.querySelector(".reviews__btn");
+  const maxHeight = 150;
+
+  if (textContainer.scrollHeight > maxHeight) {
+    readMoreBtn.style.visibility = "visible";
+    textContainer.style.maxHeight = `${maxHeight}px`;
+
+    readMoreBtn.addEventListener("click", () => {
+      openModal("reviews-popup", {
+        content: {
+          "#reviews-popup-title": item.querySelector(".reviews__name").textContent,
+          "#reviews-popup-text": fullText,
+          "#reviews-popup-date": item.querySelector(".reviews__date").textContent
         }
+      });
     });
+  }
 });
 
-// Обработчики для кнопок услуг
-document.querySelectorAll(".service__btn").forEach(button => {
-    button.addEventListener("click", function () {
-        const serviceName = this.getAttribute("data-service");
-        openModal("service-modal", serviceName, null);
-    });
+document.getElementById("reviews-popup").addEventListener("click", (event) => {
+  if (!event.target.closest(".reviews-popup__box") || event.target.closest(".reviews-popup__close-btn")) {
+    closeModal("reviews-popup");
+  }
 });
+
+
 
 
 
@@ -68,48 +112,6 @@ document.querySelectorAll(".service__btn").forEach(button => {
 
 
 
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Функция для открытия попапа с полным отзывом
-  function openReviewPopup(name, fullText, date) {
-    const modal = document.getElementById("reviews-popup");
-    const title = modal.querySelector("#reviews-popup-title");
-    const text = modal.querySelector("#reviews-popup-text");
-    const dateElement = modal.querySelector("#reviews-popup-date");
-
-    title.textContent = name;
-    text.textContent = fullText;
-    dateElement.textContent = date;
-
-    modal.classList.add("open");
-  }
-
-  // Закрытие попапа
-  document.querySelector(".reviews-popup__close-btn").addEventListener("click", () => {
-    document.getElementById("reviews-popup").classList.remove("open");
-  });
-
-  // Проверка длины текста и отображение кнопки "Читать полностью"
-  document.querySelectorAll('.reviews-item').forEach(item => {
-    const textContainer = item.querySelector('.reviews__text');
-    const fullText = textContainer.textContent.trim();
-    const readMoreBtn = item.querySelector('.reviews__btn');
-    const maxHeight = 150; // Высота, после которой нужно показывать кнопку
-
-    // Если текст больше, чем maxHeight, показываем кнопку "Читать полностью"
-    if (textContainer.scrollHeight > maxHeight) {
-      readMoreBtn.style.display = 'block';
-      textContainer.style.maxHeight = `${maxHeight}px`; // Обрезаем текст
-    }
-
-    // Открытие попапа при клике на "Читать полностью"
-    readMoreBtn.addEventListener("click", () => {
-      const name = item.querySelector('.reviews__name').textContent;
-      const date = item.querySelector('.reviews__date').textContent;
-      openReviewPopup(name, fullText, date);
-    });
-  });
-});
 
 
 
