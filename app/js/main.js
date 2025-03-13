@@ -1,3 +1,12 @@
+///////маска и валидация
+
+
+
+
+
+
+
+/////??///////////?//?//?/?//////?///////
 function openModal(modalId, { titleText = null, buttonText = null, content = {} } = {}) {
   const modal = document.getElementById(modalId);
   if (!modal) return;
@@ -110,6 +119,7 @@ document.getElementById("reviews-popup").addEventListener("click", (event) => {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+//маска на телефон
 
 
 

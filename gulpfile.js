@@ -12,6 +12,8 @@ const clean = require('gulp-clean');
 
 function scripts() {
   return src([
+    'node_modules/inputmask/dist/inputmask.min.js',
+    'node_modules/just-validate/dist/just-validate.production.min.js',
     'node_modules/swiper/swiper-bundle.min.js',
     'node_modules/@fancyapps/ui/dist/fancybox/fancybox.umd.js',
     'app/js/main.js',
