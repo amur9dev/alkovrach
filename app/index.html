@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Алковрач</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -28,6 +28,10 @@
           <a class="logo" href="#">
             <img class="logo__image" src="images/logo.png" alt="логотип детокс">
           </a>
+          <button class="menu__btn">
+            <img src="images/icons/top-btn.svg" alt="кнопка меню" class="menu__btn-icon menu__btn-icon--open">
+            <img src="images/icons/close-btn.svg" alt="крестик меню" class="menu__btn-icon menu__btn-icon--close">
+          </button>
           <nav class="menu">
             <ul class="menu__list">
               <li class="menu__item"><a class="menu__link" href="#">Услуги</a></li>
@@ -77,7 +81,6 @@
     </section>
 
 
-    <!-- модальное окно -->
     <div class="modal" id="modal">
       <div class="modal__box">
         <button class="modal__close-btn" id="modal__close-btn">
@@ -92,8 +95,9 @@
             Просто оставьте заявку и мы вам перезвоним в ближайшее время
           </h4>
           <form class="form-base__main">
-            <input type="text" class="form-base__input" placeholder="Ваше имя">
-            <input type="tel" class="form-base__input" placeholder="+7 999-999-99-99">
+            <input type="text" class="form-base__input" placeholder="Ваше имя" required>
+            <input type="tel" class="form-base__input" placeholder="+7 999-999-99-99" data-validate-field="tel"
+              required>
             <button class="form-base__btn">Получить консультацию</button>
             <p class="form-base__politic">
               Нажимая кнопку «Получить консультацию», вы соглашаетесь с
@@ -105,7 +109,7 @@
     </div>
 
 
-
+    <!-- 
     <section class="service">
       <div class="container">
         <h2 class="service__title section-title">Наши услуги</h2>
@@ -200,8 +204,8 @@
             Просто оставьте заявку и мы вам перезвоним в ближайшее время
           </h4>
           <form class="form-base__main">
-            <input type="text" class="form-base__input" placeholder="Ваше имя">
-            <input type="tel" class="form-base__input" placeholder="+7 999-999-99-99">
+            <input type="text" class="form-base__input" placeholder="Ваше имя" required>
+            <input type="tel" class="form-base__input" placeholder="+7 999-999-99-99" required>
             <button class="form-base__btn">Начать лечение</button>
             <p class="form-base__politic">
               Нажимая кнопку «Начать лечение», вы соглашаетесь с <button class="politic-popup">политикой
@@ -577,8 +581,8 @@
                 нашей
                 работы.
                 Не стесняйтесь обращаться к нам в любое время, мы всегда готовы оказать наркологическую
-                <div class="">
-                </div>
+              <div class="">
+              </div>
               </p>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 0L12 24" stroke="#0DA3FF" stroke-width="3" />
@@ -604,7 +608,7 @@
               </svg>
             </div>
           </div>
-          <div class="question-form">
+          <form class="question-form">
             <h4 class="question-form__title">
               Задайте вопрос специалисту
             </h4>
@@ -613,7 +617,7 @@
             <button class="question-form__btn" type="submit">Отправить</button>
             <p class="question-form__politic">Нажимая кнопку «Отправить», вы соглашаетесь<br>с <button
                 class="politic-popup">политикой конфиденциальности</button></p>
-          </div>
+          </form>
         </div>
       </div>
     </section>
@@ -694,7 +698,7 @@
                 <p>
                   Моему сыну 28 лет, но он начал злоупотреблять алкоголем, связался с компанией таких же неприятных
                   ребят,
-                  
+
 
                 </p>
               </div>
@@ -741,8 +745,8 @@
               Просто оставьте заявку и мы вам перезвоним в ближайшее время
             </h4>
             <form class="form-base__main">
-              <input type="text" class="form-base__input bottom-form__input" placeholder="Ваше имя">
-              <input type="tel" class="form-base__input bottom-form__input" placeholder="+7 999-999-99-99">
+              <input type="text" class="form-base__input bottom-form__input" placeholder="Ваше имя" required>
+              <input type="tel" class="form-base__input bottom-form__input" placeholder="+7 999-999-99-99" required>
               <button class="form-base__btn bottom-form__btn">Получить консультацию</button>
               <p class="form-base__politic bottom-form__politic">
                 Нажимая кнопку «Получить консультацию», вы соглашаетесь с <button
@@ -789,14 +793,14 @@
         </p>
       </div>
     </div>
-  </footer>
+  </footer> -->
 
 
 
 
 
 
-  <script src="js/main.min.js"></script>
+    <script src="js/main.min.js"></script>
 </body>
 
 </html>

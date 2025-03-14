@@ -24,6 +24,10 @@
 }
 
 .menu {
+  &__btn {
+    display: none;
+  }
+
   &__list {
     display: flex;
     list-style: none;
@@ -960,6 +964,8 @@
 
 
 
+
+
 .reviews {
   margin-bottom: 140px;
 
@@ -1080,6 +1086,84 @@
     padding-top: 20px;
     border-top: 1px solid #DDEBF4;
   }
+
+  &__text {
+    line-height: 25px;
+    color: #383838;
+    margin-bottom: 12px;
+    position: relative;
+    max-height: 150px;
+    overflow: hidden;
+  }
+
+  &__btn {
+    visibility: hidden;
+    background-color: transparent;
+    border: none;
+    color: #0DA3FF;
+    font-weight: 600;
+    line-height: 25px;
+    padding: 0 0 3px;
+    transition: all .3s;
+  }
+
+  &__btn:hover {
+    color: #0DA3FF;
+    box-shadow: inset 0 -1.5px 0 #0DA3FF;
+    cursor: pointer;
+  }
+
+  &-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: grid;
+    place-items: center;
+    z-index: 9998;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  &-popup.open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &-popup__box {
+    width: 695px;
+    min-height: 370px;
+    background: #EBF5FC;
+    border-radius: 30px;
+    padding: 35px 40px;
+    max-width: 695px;
+    width: 100%;
+    position: relative;
+    transform: scale(0);
+    transition: transform 0.6s ease;
+  }
+
+  &-popup.open &-popup__box {
+    transform: scale(1);
+  }
+
+  &-popup__close-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  &-popup__close-btn:hover {
+    color: #0DA3FF;
+  }
 }
 
 
@@ -1171,9 +1255,6 @@
 }
 
 
-
-//
-
 .modal {
   position: fixed;
   left: 0;
@@ -1189,33 +1270,33 @@
   visibility: hidden;
   opacity: 0;
   transition: opacity .3s, visibility .3s;
-}
 
-.modal__box {
-  position: relative;
-  max-width: 815px;
-  border-radius: 30px;
-  padding: 45px;
-  z-index: 1;
-  margin: 30px 15px;
-  background-color: #EBF5FC;
-  box-shadow: 0px 0px 17px -7px rgba(34, 60, 80, 0.2);
-  transform: scale(0);
-  transition: transform .6s;
-}
+  &__box {
+    position: relative;
+    max-width: 815px;
+    border-radius: 30px;
+    padding: 45px;
+    z-index: 1;
+    margin: 30px 15px;
+    background-color: #EBF5FC;
+    box-shadow: 0px 0px 17px -7px rgba(34, 60, 80, 0.2);
+    transform: scale(0);
+    transition: transform .6s;
+  }
 
-.modal__close-btn {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  border: none;
-  background-color: transparent;
-  padding: 5px;
-  cursor: pointer;
-}
+  &__close-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+    cursor: pointer;
+  }
 
-.modal__close-btn svg path {
-  transition: fill .4s;
+  &__close-btn svg path {
+    transition: fill .4s;
+  }
 }
 
 .modal.open {
@@ -1230,95 +1311,133 @@
 
 
 
-/////////
-/// 
-/// 
-/// 
-/// 
-/// 
-/// 
-/// 
 
 
 
-//ревью (читать дальше попап)
-.reviews__text {
-  line-height: 25px;
-  color: #383838;
-  margin-bottom: 12px;
-  position: relative;
-  max-height: 150px;
-  overflow: hidden;
+
+//АДАПТИВ
+
+@media(max-width: 1200px) {
+
+  .menu {
+    &__list {}
+
+    &__item+&__item {
+      margin-left: 15px;
+    }
+
+    &__link {
+      font-size: 15px;
+    }
+  }
+
+  .contact {
+    &__info {
+
+      & a {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .hero {
+    &__inner {
+      padding-top: 20px;
+    }
+
+    &__content {
+      padding: 30px 0;
+    }
+
+    &__title {
+      font-size: 48px;
+    }
+
+    &__text {
+      margin-bottom: 30px;
+    }
+  }
+
 }
 
-.reviews__btn {
-  visibility: hidden;
-  background-color: transparent;
-  border: none;
-  color: #0DA3FF;
-  font-weight: 600;
-  line-height: 25px;
-  padding: 0 0 3px;
-  transition: all .3s;
+@media(max-width: 992px) {
+  .logo__image {
+    max-width: 140px;
+  }
+  .notification {
+    padding: 8px 0;
+
+    &__text {
+      font-size: 14px;
+    }
+  }
+  .menu {
+    position: absolute;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+    padding-left: 15px;
+    transform: translateY(-20px) scale(0.95);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    background-color: #F1F8FD; // Фон меню
+
+    &.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);;
+      visibility: visible;
+    }
+
+    &__item+&__item {
+      margin-left: 40px;
+    }
+
+    &__btn {
+      position: relative;
+      display: block;
+      order: 2;
+      background-color: transparent;
+      border: none;
+      width: 30px;
+      height: 30px;
+    }
+    &__btn-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+
+    &__btn-icon--close {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.9);
+    }
+
+    &__btn.active &__btn-icon--open {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.9);
+    }
+
+    &__btn.active &__btn-icon--close {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .contact {
+    order: 1;
+  }
 }
 
-.reviews__btn:hover {
-  color: #0DA3FF;
-  box-shadow: inset 0 -1.5px 0 #0DA3FF;
-  cursor: pointer;
-}
+// @media(max-width: 768px) {}
 
-.reviews-popup {
+// @media(max-width: 576px) {}
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  display: grid;
-  place-items: center;
-  z-index: 9998;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s, visibility 0.3s;
-}
-
-.reviews-popup.open {
-  visibility: visible;
-  opacity: 1;
-}
-
-.reviews-popup__box {
-  width: 695px;
-  min-height: 370px;
-  background: #EBF5FC;
-  border-radius: 30px;
-  padding: 35px 40px;
-  max-width: 695px;
-  width: 100%;
-  position: relative;
-  transform: scale(0);
-  transition: transform 0.6s ease;
-}
-
-.reviews-popup.open .reviews-popup__box {
-  transform: scale(1);
-}
-
-.reviews-popup__close-btn {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  background: transparent;
-  border: none;
-  color: #333;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.reviews-popup__close-btn:hover {
-  color: #0DA3FF;
-}
-
-
+// @media(max-width: 320px) {}

@@ -1,7 +1,31 @@
-///////маска и валидация
+///////маска 
 
+let inputs = document.querySelectorAll('input[type="tel"]');
+let im = new Inputmask('+7 (999) 999-99-99', {
+  showMaskOnHover: false
+});
+im.mask(inputs);
 
+// меню появление
 
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.querySelector(".menu__btn");
+  const menu = document.querySelector(".menu");
+
+  menuBtn.addEventListener("click", (event) => {
+    // Переключаем класс active на кнопке и в меню
+    menuBtn.classList.toggle("active");
+    menu.classList.toggle("active");
+    event.stopPropagation();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+      menu.classList.remove("active");
+      menuBtn.classList.remove("active"); // Убираем активный класс с кнопки
+    }
+  });
+});
 
 
 
