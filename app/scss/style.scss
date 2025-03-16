@@ -1320,11 +1320,6 @@
 @media(max-width: 1200px) {
 
   .menu {
-    &__list {}
-
-    &__item+&__item {
-      margin-left: 15px;
-    }
 
     &__link {
       font-size: 15px;
@@ -1342,11 +1337,12 @@
 
   .hero {
     &__inner {
-      padding-top: 20px;
+      padding-top: 65px;
     }
 
     &__content {
-      padding: 30px 0;
+      padding: 5px 0;
+
     }
 
     &__title {
@@ -1361,9 +1357,12 @@
 }
 
 @media(max-width: 992px) {
+
+
   .logo__image {
     max-width: 140px;
   }
+
   .notification {
     padding: 8px 0;
 
@@ -1371,29 +1370,27 @@
       font-size: 14px;
     }
   }
+
   .menu {
     position: absolute;
     top: 120px;
     display: flex;
-    flex-direction: column;
-    left: 0;
+    justify-content: center;
+    left: 15px;
     right: 0;
-    padding-left: 15px;
     transform: translateY(-20px) scale(0.95);
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    padding: 20px 0;
     background-color: #F1F8FD; // Фон меню
 
     &.active {
       opacity: 1;
-      transform: translateY(0) scale(1);;
+      transform: translateY(0) scale(1);
       visibility: visible;
     }
 
-    &__item+&__item {
-      margin-left: 40px;
-    }
 
     &__btn {
       position: relative;
@@ -1404,6 +1401,7 @@
       width: 30px;
       height: 30px;
     }
+
     &__btn-icon {
       position: absolute;
       top: 0;
@@ -1431,12 +1429,91 @@
       visibility: visible;
     }
   }
+
+  .hero {
+    &__title {
+      line-height: 48px;
+      font-size: 32px;
+      max-width: 350px;
+      padding-left: 30px;
+      margin-bottom: 15px;
+    }
+
+    &__content {
+      padding: 0;
+    }
+
+    &__image {
+      margin-top: auto;
+    }
+
+    &__text p {
+      margin-bottom: 5px;
+    }
+
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+  }
+
   .contact {
     order: 1;
   }
+
 }
 
-// @media(max-width: 768px) {}
+@media(max-width: 768px) {
+
+  .notification{
+    &__text{
+      font-size: 12px;
+    }
+  }
+  .hero {
+    background-image: none;
+    position: relative;
+
+    &__title {
+      line-height: 48px;
+    }
+
+    &__inner {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__buttons {
+      margin-bottom: 35px;
+    }
+
+    &__image {
+      max-width: 260px;
+      position: relative;
+      z-index: 2;
+
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      background: url('../images/hero-bg-image.jpg') 50% no-repeat;
+      z-index: -10;
+      background-attachment: fixed;
+      background-size: cover;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 260px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      width: 100%;
+    }
+  }
+}
 
 // @media(max-width: 576px) {}
 

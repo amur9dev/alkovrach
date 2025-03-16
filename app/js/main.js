@@ -1,19 +1,16 @@
-///////маска 
-
+//маска 
 let inputs = document.querySelectorAll('input[type="tel"]');
 let im = new Inputmask('+7 (999) 999-99-99', {
   showMaskOnHover: false
 });
 im.mask(inputs);
 
-// меню появление
-
+//кнопка меню
 document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.querySelector(".menu__btn");
   const menu = document.querySelector(".menu");
 
   menuBtn.addEventListener("click", (event) => {
-    // Переключаем класс active на кнопке и в меню
     menuBtn.classList.toggle("active");
     menu.classList.toggle("active");
     event.stopPropagation();
@@ -22,15 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", (event) => {
     if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
       menu.classList.remove("active");
-      menuBtn.classList.remove("active"); // Убираем активный класс с кнопки
+      menuBtn.classList.remove("active"); 
     }
   });
 });
 
-
-
-
-/////??///////////?//?//?/?//////?///////
+//модальное окно
 function openModal(modalId, { titleText = null, buttonText = null, content = {} } = {}) {
   const modal = document.getElementById(modalId);
   if (!modal) return;
@@ -137,31 +131,7 @@ document.getElementById("reviews-popup").addEventListener("click", (event) => {
 
 
 
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-//маска на телефон
-
-
-
-
-
-
-
-
-
-////////////////////////////////////////
-
-
-
-
-
-
-
-
+// about слайдер
 
 const aboutSwiper = new Swiper(".about__slider", {
   loop: true,
@@ -195,9 +165,7 @@ const photoSlider = new Swiper('.personal__photo', {
   centeredSlides: false,
   loop: true,
   speed: 500, 
-   spaceBetween: 20,
-   // Добавляем отступ 20px между слайдами
- // Плавная анимадция
+  spaceBetween: 20,
   navigation: {
     nextEl: '.personal__next',
     prevEl: '.personal__prev',
@@ -207,12 +175,12 @@ const photoSlider = new Swiper('.personal__photo', {
 const infoSlider = new Swiper('.personal__info', {
   slidesPerView: 1, 
   slidesPerGroup: 1,
-  effect: 'slide', // Делаем плавное исчезновение
+  effect: 'slide', 
   fadeEffect: {
-    crossFade: true, // Убирает резкий переход
+    crossFade: true, 
   },
   speed: 500, // Плавная анимация
-  allowTouchMove: false, // Отключаем свайпы, так как он синхронизируется с фото
+  allowTouchMove: false,
 });
 
 photoSlider.on('slideChange', () => {
@@ -234,7 +202,7 @@ photoSlider.on('slideChange', () => {
 
 
 
-
+//вопросы 
 
 const questionList = document.querySelector('.question-list');
 
@@ -264,17 +232,7 @@ questionList.addEventListener('click', (event) => {
 
 
 
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
+//отзывы
 
 
 document.addEventListener("DOMContentLoaded", function () {
