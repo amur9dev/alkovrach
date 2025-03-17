@@ -13,16 +13,30 @@ document.addEventListener("DOMContentLoaded", () => {
   menuBtn.addEventListener("click", (event) => {
     menuBtn.classList.toggle("active");
     menu.classList.toggle("active");
+
+    // Добавляем/удаляем класс для блокировки прокрутки
+    if (menu.classList.contains("active")) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
     event.stopPropagation();
   });
 
   document.addEventListener("click", (event) => {
     if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
       menu.classList.remove("active");
-      menuBtn.classList.remove("active"); 
+      menuBtn.classList.remove("active");
+
+      // Разблокируем прокрутку
+      document.body.classList.remove("no-scroll");
     }
   });
 });
+
+
+
 
 //модальное окно
 function openModal(modalId, { titleText = null, buttonText = null, content = {} } = {}) {
