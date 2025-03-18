@@ -409,7 +409,18 @@ body.no-scroll {
     object-fit: cover;
   }
 
-  //стрелки слайдера about
+  &__slider-item {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__slider-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   &__btn-inner {
     position: absolute;
@@ -1499,16 +1510,45 @@ body.no-scroll {
   }
 
   .stage {
+    margin-bottom: 100px;
+
     &__item-text {
-      font-size: 12px;
+      font-size: 13px;
     }
 
     &__item {
-      gap: 5px;
+      gap: 3px;
+    }
+  }
+
+  .about {
+    padding: 100px 0;
+
+    &__top {
+      display: flex;
+      flex-direction: column-reverse;
+      padding-bottom: 20px;
+    }
+
+    &__btn-inner {
+      display: none;
+    }
+
+    &__slider {
+      width: 100%;
+      max-width: 990px;
+      height: 390px;
+
+      .swiper-wrapper .about__slider-item img {
+        border-radius: 30px;
+      }
+    }
+
+    &__info {
+      max-width: 100%;
     }
   }
 }
-
 
 @media(max-width: 768px) {
 
@@ -1582,7 +1622,8 @@ body.no-scroll {
   }
 
   .stage {
-    margin-bottom: 80px;
+    margin-bottom: 70px;
+
     &__inner {
       padding-top: 0;
       display: flex;
@@ -1590,10 +1631,13 @@ body.no-scroll {
     }
 
     &__item {
+      gap: 10px;
+      display: flex;
+      align-items: center;
       margin-bottom: 20px;
 
       &-text {
-        padding-top: 15px;
+   
         font-size: 14px;
       }
     }
@@ -1611,6 +1655,18 @@ body.no-scroll {
       left: auto;
       right: 0;
       top: 10px;
+    }
+  }
+
+  .about {
+    padding: 50px 0;
+
+    &__slider {
+      height: 290px;
+    }
+
+    &__slider-item .swiper-slide {
+      margin-right: 5px;
     }
   }
 }
@@ -1720,8 +1776,15 @@ body.no-scroll {
 
   .stage {
     margin-bottom: 50px;
+
     .container {
       padding: 0 5px;
+    }
+  }
+
+  .about {
+    &__slider {
+      height: 230px;
     }
   }
 }
@@ -1783,6 +1846,19 @@ body.no-scroll {
     &__price,
     &__btn {
       flex: none;
+    }
+  }
+
+  .stage {
+    &__item-text {
+      max-width: 160px;
+    }
+  }
+
+
+  .about {
+    &__slider {
+      height: 200px;
     }
   }
 }

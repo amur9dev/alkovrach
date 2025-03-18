@@ -151,15 +151,24 @@ const aboutSwiper = new Swiper(".about__slider", {
   loop: true,
   loopAdditionalSlides: 3,
   slidesPerView: 1,
-  spaceBetween: 0,
   navigation: {
     nextEl: ".about__slider-next",
     prevEl: ".about__slider-prev",
   },
-})
-
-Fancybox.bind("[data-fancybox]", {});
-
+  breakpoints: {
+    0: {
+      slidesPerView: 1.5,
+      spaceBetween: 5, // Отступ 5px при ширине < 768px
+    },
+    768: {
+      slidesPerView: 1.5,
+      spaceBetween: 15, // Отступ 15px при ширине 768px - 992px
+    },
+    993: {
+      slidesPerView: 1,
+    },
+  },
+});
 
 
 
