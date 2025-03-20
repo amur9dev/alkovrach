@@ -519,20 +519,18 @@ body.no-scroll {
   padding-bottom: 140px;
 
   &__title {
-    min-width: 508px;
+    min-width: 500px;
     line-height: 55px;
     margin-bottom: 50px;
   }
 
   &__inner {
     gap: 100px;
+    max-height: 460px;
     display: flex;
-
   }
 
-
-
-  &__container {
+  &__info-container {
     display: flex;
     max-width: 100%;
     max-height: 460px;
@@ -543,8 +541,8 @@ body.no-scroll {
 
   &__btn {
     position: absolute;
-    bottom: -100px;
-    right: 430px;
+    top: 450px;
+    right: 445px;
   }
 
 
@@ -581,18 +579,16 @@ body.no-scroll {
       line-height: 25px;
     }
 
-    &-btn {
-      position: absolute;
-    }
   }
 
 
   &__photo {
-    max-height: 460px;
+
     padding: 5px;
     overflow: hidden;
     gap: 20px;
     border-radius: 15px;
+
 
     &-item &-img {
       border-radius: 15px;
@@ -602,11 +598,18 @@ body.no-scroll {
       -moz-box-shadow: 0px 0px 8px 5px rgba(180, 204, 221, 0.2);
       box-shadow: 0px 0px 8px 5px rgba(180, 204, 221, 0.2);
     }
+
+    &-info {
+      padding: 15px;
+      background-color: #f1f8fd;
+      border-radius: 10px;
+
+      .personal__info-details {
+        font-size: 14px;
+      }
+    }
   }
 
-  &__photo-item .swiper-slide-active {
-    outline: 2px solid red;
-  }
 
 
   &__inner .personal__prev,
@@ -675,6 +678,7 @@ body.no-scroll {
     display: flex;
     justify-content: space-between;
     margin-bottom: 60px;
+    gap: 60px;
   }
 
   &-img img {
@@ -683,7 +687,7 @@ body.no-scroll {
     max-width: 550px;
     width: 100%;
     border-radius: 20px;
-    margin-right: 60px;
+
   }
 
   &__title {
@@ -845,7 +849,7 @@ body.no-scroll {
 
   &-item {
     position: relative;
-    width: 790px;
+    max-width: 790px;
     display: block;
     padding: 25px 30px;
     border-radius: 10px;
@@ -895,7 +899,7 @@ body.no-scroll {
   }
 
   &-form {
-    width: 100%;
+    max-width: 390px;
     height: 100%;
     padding: 25px 30px;
     border-radius: 10px;
@@ -987,46 +991,50 @@ body.no-scroll {
     position: relative;
   }
 
-  &__inner &__prev,
-  &__inner &__next {
+
+  &__btns {
+    z-index: 10;
     position: absolute;
-    top: -37px;
-    transform: translateY(-50%);
+    top: -50px;
+    right: -70px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 130px;
+  }
+
+  &__btns &__prev,
+  &__btns &__next {
+    position: relative;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     background-color: #0DA3FF;
     cursor: pointer;
+    transition: all 0.3s;
     z-index: 10;
-    transition: all .3s;
   }
 
-  &__inner &__prev {
-    left: 1080px;
-  }
-
-  &__prev::before {
+  &__btns &__prev::before,
+  &__btns &__next::before {
     content: '';
     position: absolute;
     width: 10px;
     height: 10px;
     border-left: 3px solid #fff;
     border-bottom: 3px solid #fff;
+  }
+
+  &__prev::before {
     transform: rotate(45deg);
   }
 
   &__next::before {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-left: 3px solid #fff;
-    border-bottom: 3px solid #fff;
     transform: rotate(225deg);
   }
 
-
-  &__inner &__prev:hover,
+  &__prev:hover,
   &__next:hover {
     opacity: 0.8;
   }
@@ -1038,11 +1046,18 @@ body.no-scroll {
   }
 
   &-item {
-    padding: 30px;
     background-color: #F1F8FD;
     border-radius: 20px;
-    max-width: 530px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
 
+
+
+  // .swiper-slide 
+  &-item {
+    max-width: 650px;
+    width: 100%;
   }
 
   &-item::after {
@@ -1069,6 +1084,7 @@ body.no-scroll {
     margin-bottom: 12px;
     position: relative;
     height: 150px;
+    overflow: hidden;
   }
 
   &__btn {
@@ -1326,6 +1342,11 @@ body.no-scroll {
 
 //АДАПТИВ
 
+
+
+
+
+
 @media(max-width: 1200px) {
 
   .menu {
@@ -1381,6 +1402,52 @@ body.no-scroll {
       &-inner .swiper-wrapper {
         gap: 0px;
       }
+    }
+
+  }
+
+  .personal {
+    &__inner {
+      gap: 25px;
+    }
+
+    &__info-container {
+      max-width: 400px;
+      padding-left: 15px;
+    }
+
+    &__title {
+      margin-bottom: 30px;
+    }
+
+    &__btn {
+      right: 330px;
+    }
+
+    &__info {
+      max-width: 400px;
+      padding: 15px 0px 15px 15px;
+
+      &-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .advantage {
+    &-form {
+      padding: 20px;
+    }
+
+    &-form::after {
+      display: none;
+    }
+  }
+
+  .question {
+    &-item {
+      padding: 25px 60px 25px 30px;
     }
   }
 }
@@ -1547,8 +1614,128 @@ body.no-scroll {
 
   .about__item {
     width: calc((100% - 60px) / 3.5);
-    /* Отнимаем отступы и делим на 3.5 */
   }
+
+  .personal {
+    padding-bottom: 70px;
+
+    &__btn,
+    &__info {
+      display: none;
+    }
+
+    &__inner {
+      max-height: 700px;
+      flex-direction: column;
+    }
+
+    &-container {
+      margin: 0 auto;
+      max-width: 1600px;
+      padding: 0 5px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    &__photo-img {
+      margin-bottom: 10px;
+    }
+  }
+
+  .advantage {
+    padding: 70px 0;
+    margin-bottom: 50px;
+
+    &__title,
+    &__subtitle,
+    &__text-title,
+    &__text-item {
+      max-width: 100%;
+    }
+
+    &__inner {
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 35px;
+    }
+
+    &__info {
+      align-self: flex-start;
+      width: 100%;
+    }
+  }
+
+  .advantage {
+    &-form {
+      flex-direction: column;
+
+      &__title,
+      p {
+        max-width: 100%;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      &__info p:last-child {
+        margin-bottom: 25px;
+      }
+
+      &__main {
+        display: flex;
+        gap: 15px;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      &__input {
+        flex-basis: calc(50% - 10px);
+        max-width: calc(50% - 10px);
+      }
+
+      &__btn {
+        flex: 1 1 100%;
+      }
+    }
+  }
+
+
+  .question {
+    margin-bottom: 70px;
+
+    &-item {
+      padding: 25px 60px 25px 30px;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &-inner {
+      flex-direction: column;
+    }
+
+    &-form {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  .reviews {
+    &__btns {
+      top: -30px;
+    }
+
+    &-item {
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: #F1F8FD;
+      border-radius: 20px;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
 }
 
 @media(max-width: 768px) {
@@ -1623,7 +1810,7 @@ body.no-scroll {
   }
 
   .stage {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 
     &__inner {
       padding-top: 0;
@@ -1659,12 +1846,15 @@ body.no-scroll {
     }
   }
 
-  .about {
-    &__title {
-      margin-bottom: 10px;
-      line-height: 35px;
-    }
 
+  .personal {
+    &__inner {
+      gap: 0;
+    }
+  }
+
+
+  .about {
     padding: 50px 0;
 
     &__slider {
@@ -1689,6 +1879,15 @@ body.no-scroll {
   .about__item {
     width: calc((100% - 40px) / 2.5);
   }
+
+  .advantage {
+
+    &__subtitle,
+    &__text-item {
+      font-size: 14px;
+    }
+  }
+
 }
 
 @media(max-width: 576px) {
@@ -1723,6 +1922,11 @@ body.no-scroll {
     &__item {
       margin-bottom: 15px;
     }
+  }
+
+  .section-title {
+    font-size: 30px;
+    line-height: 35px;
   }
 
   .contact {
@@ -1807,6 +2011,10 @@ body.no-scroll {
       height: 230px;
     }
 
+    &__title {
+      margin-bottom: 10px;
+    }
+
     &__list {
       &-img {
         width: 30px;
@@ -1814,6 +2022,38 @@ body.no-scroll {
       }
     }
   }
+
+  .personal {
+    &__photo-item {
+      max-width: 100%;
+    }
+
+    &__title {
+      min-width: 150px;
+      line-height: 35px;
+    }
+  }
+
+  .advantage {
+    &-form {
+      &__main {
+        display: flex;
+        gap: 15px;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      &__input {
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+
+      &__btn {
+        flex: 1 1 100%;
+      }
+    }
+  }
+
 }
 
 @media(max-width: 385px) {
@@ -1893,6 +2133,7 @@ body.no-scroll {
       max-width: 250px;
     }
   }
+
   .about__item {
     width: calc((100% - 10px) / 1.5);
   }

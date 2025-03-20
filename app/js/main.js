@@ -197,16 +197,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function destroySwiper() {
     if (swiperDocument) {
-      swiperDocument.destroy(true, true); 
+      swiperDocument.destroy(true, true);
       swiperDocument = null;
     }
   }
 
   function checkScreenWidth() {
     if (window.innerWidth < 1200) {
-      initSwiper(); 
+      initSwiper();
     } else {
-      destroySwiper(); 
+      destroySwiper();
     }
   }
   checkScreenWidth();
@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /////////////////////////////
 
 const photoSlider = new Swiper('.personal__photo', {
-  slidesPerView: 3, // Оставляем 3 слайда
+  slidesPerView: 2.5,
   slidesPerGroup: 1,
   centeredSlides: false,
   loop: true,
@@ -229,6 +229,31 @@ const photoSlider = new Swiper('.personal__photo', {
     nextEl: '.personal__next',
     prevEl: '.personal__prev',
   },
+  breakpoints: {
+
+    992: {
+      slidesPerView: 2.5,
+      spaceBetween: 20
+    },
+
+    768: {
+      slidesPerView: 3.5,
+      spaceBetween: 15
+    },
+
+    450: {
+      slidesPerView: 2.5,
+      spaceBetween: 10
+    },
+    320: {
+      slidesPerView: 1.5,
+      spaceBetween: 10
+    },
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 10
+    }
+  }
 });
 
 const infoSlider = new Swiper('.personal__info', {
@@ -294,6 +319,7 @@ questionList.addEventListener('click', (event) => {
 //отзывы
 
 
+/*
 document.addEventListener("DOMContentLoaded", function () {
   new Swiper(".reviews__inner", {
     slidesPerView: 2, // Отображать два элемента
@@ -308,9 +334,39 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+*/
+
+document.addEventListener("DOMContentLoaded", function () {
+  new Swiper(".reviews__inner", {
+    slidesPerView: 2,
+    slidesPerGroup: 1,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: ".reviews__next",
+      prevEl: ".reviews__prev",
+    },
+    breakpoints: {
+      992: {
+        slidesPerView: 2, // Для ширины 992px и больше показываем 2 слайда
+      },
+      0: {
+        slidesPerView: 1, // Для ширины меньше 992px показываем 1 слайд
+      }
+    }
+  });
+});
 
 
 
 
+//контейнер для personal после 992
 
+const personalInner = document.querySelector('.personal__inner');
 
+function updateClass() {
+  personalInner.classList.toggle('personal-container', window.innerWidth < 992);
+}
+
+window.addEventListener('resize', updateClass);
+updateClass(); 

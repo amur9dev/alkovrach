@@ -369,8 +369,8 @@
 
 
     <section class="personal">
-      <div class="personal__inner">
-        <div class="personal__container">
+      <div class="personal__inner personal-container">
+        <div class="personal__info-container">
           <h2 class="personal__title section-title">
             Медицинский персонал
           </h2>
@@ -431,24 +431,79 @@
 
         <div class="personal__photo">
           <div class="swiper-wrapper">
+
+
             <div class="personal__photo-item swiper-slide">
               <img class="personal__photo-img" src="images/personal/1.jpg" alt="Доктор Меринов">
+              <div class="personal__photo-info">
+                <h4 class="personal__info-title">
+                  Меринов Артём Вячеславович
+                </h4>
+                <div class="personal__info-details">Cпециализация: <span>Врач-Нарколог</span></div>
+                <div class="personal__info-details">Опыт работы: <span>12 лет</span></div>
+              </div>
             </div>
+
+
             <div class="personal__photo-item swiper-slide">
               <img class="personal__photo-img" src="images/personal/2.jpg" alt="Доктор Иванова">
+              <div class="personal__photo-info">
+                <h4 class="personal__info-title">
+                  Иванова Марина Владимировна
+                </h4>
+                <div class="personal__info-details">Cпециализация: <span>Врач-Нарколог</span></div>
+                <div class="personal__info-details">Опыт работы: <span>10 лет</span></div>
+              </div>
             </div>
+
+
             <div class="personal__photo-item swiper-slide">
               <img class="personal__photo-img" src="images/personal/3.jpg" alt="Доктор Петров">
+              <div class="personal__photo-info">
+                <h4 class="personal__info-title">
+                  Петров Борис Викторович
+                </h4>
+                <div class="personal__info-details">Cпециализация: <span>Врач-Нарколог</span></div>
+                <div class="personal__info-details">Опыт работы: <span>25 лет</span></div>
+              </div>
             </div>
+
+
             <div class="personal__photo-item swiper-slide">
               <img class="personal__photo-img" src="images/personal/1.jpg" alt="Доктор Меринов">
+              <div class="personal__photo-info">
+                <h4 class="personal__info-title">
+                  Меринов Артём Вячеславович
+                </h4>
+                <div class="personal__info-details">Cпециализация: <span>Врач-Нарколог</span></div>
+                <div class="personal__info-details">Опыт работы: <span>12 лет</span></div>
+              </div>
             </div>
+
+
             <div class="personal__photo-item swiper-slide">
               <img class="personal__photo-img" src="images/personal/2.jpg" alt="Доктор Иванова">
+              <div class="personal__photo-info">
+                <h4 class="personal__info-title">
+                  Иванова Марина Владимировна
+                </h4>
+                <div class="personal__info-details">Cпециализация: <span>Врач-Нарколог</span></div>
+                <div class="personal__info-details">Опыт работы: <span>10 лет</span></div>
+              </div>
             </div>
+
+
             <div class="personal__photo-item swiper-slide">
               <img class="personal__photo-img" src="images/personal/3.jpg" alt="Доктор Петров">
+              <div class="personal__photo-info">
+                <h4 class="personal__info-title">
+                  Петров Борис Викторович
+                </h4>
+                <div class="personal__info-details">Cпециализация: <span>Врач-Нарколог</span></div>
+                <div class="personal__info-details">Опыт работы: <span>25 лет</span></div>
+              </div>
             </div>
+
 
           </div>
         </div>
@@ -631,7 +686,7 @@
             <input type="tel" id="phone" placeholder="+7 999-999-99-99" required>
             <textarea type="message" placeholder="Ваш вопрос"></textarea>
             <button class="question-form__btn" type="submit">Отправить</button>
-            <p class="question-form__politic">Нажимая кнопку «Отправить», вы соглашаетесь<br>с <button
+            <p class="question-form__politic">Нажимая кнопку «Отправить», вы соглашаетесь с <button
                 class="politic-popup">политикой конфиденциальности</button></p>
           </form>
         </div>
@@ -724,8 +779,10 @@
               </span>
             </div>
           </div>
-          <div class="reviews__prev swiper-button-prev"></div>
-          <div class="reviews__next swiper-button-next"></div>
+          <div class="reviews__btns">
+            <div class="reviews__prev swiper-button-prev"></div>
+            <div class="reviews__next swiper-button-next"></div>
+          </div>
         </div>
       </div>
     </section>
