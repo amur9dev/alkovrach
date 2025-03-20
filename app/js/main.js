@@ -158,11 +158,11 @@ const aboutSwiper = new Swiper(".about__slider", {
   breakpoints: {
     0: {
       slidesPerView: 1.5,
-      spaceBetween: 5, // Отступ 5px при ширине < 768px
+      spaceBetween: 5,
     },
     768: {
       slidesPerView: 1.5,
-      spaceBetween: 15, // Отступ 15px при ширине 768px - 992px
+      spaceBetween: 15,
     },
     993: {
       slidesPerView: 1,
@@ -174,20 +174,56 @@ const aboutSwiper = new Swiper(".about__slider", {
 
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// document slider
+document.addEventListener("DOMContentLoaded", function () {
+  let swiperDocument;
+  function initSwiper() {
+    if (window.innerWidth < 1200 && !swiperDocument) {
+      swiperDocument = new Swiper(".about__documents-inner", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        slidesPerGroup: 1,
+        loop: false,
+        breakpoints: {
+          992: { slidesPerView: 3.5, spaceBetween: 20 },
+          768: { slidesPerView: 2.5, spaceBetween: 20 },
+          385: { slidesPerView: 1.5, spaceBetween: 10 },
+          0: { slidesPerView: 1.5, spaceBetween: 10 },
+        }
+      });
+    }
+  }
+
+  function destroySwiper() {
+    if (swiperDocument) {
+      swiperDocument.destroy(true, true); 
+      swiperDocument = null;
+    }
+  }
+
+  function checkScreenWidth() {
+    if (window.innerWidth < 1200) {
+      initSwiper(); 
+    } else {
+      destroySwiper(); 
+    }
+  }
+  checkScreenWidth();
+  window.addEventListener("resize", checkScreenWidth);
+});
 
 
 
 
-
-
+/////////////////////////////
 
 const photoSlider = new Swiper('.personal__photo', {
   slidesPerView: 3, // Оставляем 3 слайда
   slidesPerGroup: 1,
   centeredSlides: false,
   loop: true,
-  speed: 500, 
+  speed: 500,
   spaceBetween: 20,
   navigation: {
     nextEl: '.personal__next',
@@ -196,11 +232,11 @@ const photoSlider = new Swiper('.personal__photo', {
 });
 
 const infoSlider = new Swiper('.personal__info', {
-  slidesPerView: 1, 
+  slidesPerView: 1,
   slidesPerGroup: 1,
-  effect: 'slide', 
+  effect: 'slide',
   fadeEffect: {
-    crossFade: true, 
+    crossFade: true,
   },
   speed: 500, // Плавная анимация
   allowTouchMove: false,
