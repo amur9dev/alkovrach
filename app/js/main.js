@@ -1,26 +1,48 @@
-//маска 
-let inputs = document.querySelectorAll('input[type="tel"]');
-let im = new Inputmask('+7 (999) 999-99-99', {
-  showMaskOnHover: false
-});
-im.mask(inputs);
-
-//кнопка меню
-document.addEventListener("DOMContentLoaded", () => {
+// обработчик событий для меню
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll(".menu__link");
   const menuBtn = document.querySelector(".menu__btn");
   const menu = document.querySelector(".menu");
+  const header = document.querySelector(".header");
+  const overlay = document.createElement("div");
+  overlay.classList.add("menu-overlay");
+  document.body.appendChild(overlay);
 
+  // переход к нужной секции
+  links.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 150,
+          behavior: "smooth"
+        });
+      }
+
+      // закрытие меню при переходе к секции
+      menu.classList.remove("active");
+      menuBtn.classList.remove("active");
+      header.classList.remove("menu-open");
+      document.body.classList.remove("no-scroll");
+      overlay.classList.remove("active");
+    });
+  });
+
+  // открытие/закрытие меню
   menuBtn.addEventListener("click", (event) => {
     menuBtn.classList.toggle("active");
     menu.classList.toggle("active");
+    header.classList.toggle("menu-open");
+    overlay.classList.toggle("active");
 
-    // Добавляем/удаляем класс для блокировки прокрутки
     if (menu.classList.contains("active")) {
       document.body.classList.add("no-scroll");
     } else {
       document.body.classList.remove("no-scroll");
     }
-
     event.stopPropagation();
   });
 
@@ -28,17 +50,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
       menu.classList.remove("active");
       menuBtn.classList.remove("active");
-
-      // Разблокируем прокрутку
+      header.classList.remove("menu-open");
       document.body.classList.remove("no-scroll");
+      overlay.classList.remove("active");
     }
   });
 });
 
+// маска для ввода номера телефона
+let inputs = document.querySelectorAll('input[type="tel"]');
+let im = new Inputmask('+7 (999) 999-99-99', {
+  showMaskOnHover: false
+});
+im.mask(inputs);
 
-
-
-//модальное окно
+// модальное окно
 function openModal(modalId, { titleText = null, buttonText = null, content = {} } = {}) {
   const modal = document.getElementById(modalId);
   if (!modal) return;
@@ -141,83 +167,68 @@ document.getElementById("reviews-popup").addEventListener("click", (event) => {
   }
 });
 
-
-
-
-
 // about слайдер
-
-const aboutSwiper = new Swiper(".about__slider", {
-  loop: true,
-  loopAdditionalSlides: 3,
-  slidesPerView: 1,
-  navigation: {
-    nextEl: ".about__slider-next",
-    prevEl: ".about__slider-prev",
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1.5,
-      spaceBetween: 5,
-    },
-    768: {
-      slidesPerView: 1.5,
-      spaceBetween: 15,
-    },
-    993: {
-      slidesPerView: 1,
-    },
-  },
-});
-
-
-
-
-
-
-// document slider
 document.addEventListener("DOMContentLoaded", function () {
-  let swiperDocument;
-  function initSwiper() {
-    if (window.innerWidth < 1200 && !swiperDocument) {
-      swiperDocument = new Swiper(".about__documents-inner", {
+  // основной слайдер
+  const aboutSwiper = new Swiper(".about__slider", {
+    loop: true,
+    loopAdditionalSlides: 3,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: ".about__slider-next",
+      prevEl: ".about__slider-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1.5, spaceBetween: 5 },
+      768: { slidesPerView: 1.5, spaceBetween: 15 },
+      993: { slidesPerView: 1 },
+    },
+  });
+
+  // слайдер документы
+  let swiperDocuments;
+  function initDocumentsSwiper() {
+    if (!swiperDocuments) {
+      swiperDocuments = new Swiper(".about__documents-inner", {
         slidesPerView: 4,
         spaceBetween: 20,
         slidesPerGroup: 1,
         loop: false,
+        navigation: {
+          nextEl: ".documents-slider-next",
+          prevEl: ".documents-slider-prev",
+        },
         breakpoints: {
-          992: { slidesPerView: 3.5, spaceBetween: 20 },
-          768: { slidesPerView: 2.5, spaceBetween: 20 },
-          385: { slidesPerView: 1.5, spaceBetween: 10 },
-          0: { slidesPerView: 1.5, spaceBetween: 10 },
-        }
+          1200: { slidesPerView: 4, slidesPerGroup: 1, },
+          768: { slidesPerView: 3.5, slidesPerGroup: 1, },
+          480: { slidesPerView: 2.5, slidesPerGroup: 1, },
+          0: { slidesPerView: 1.5, slidesPerGroup: 1, },
+        },
       });
     }
   }
 
-  function destroySwiper() {
-    if (swiperDocument) {
-      swiperDocument.destroy(true, true);
-      swiperDocument = null;
-    }
-  }
+  // fancybox документы
+  Fancybox.bind("[data-fancybox='gallery']", {
+    Toolbar: true,
+    loop: true,
+    zoom: true,
+    keyboard: true,
+    arrows: true,
+    buttons: ["zoom", "slideShow", "thumbs", "close"],
+    on: {
+      init: () => {
+        setTimeout(() => {
+          if (swiperDocuments) swiperDocuments.update();
+        }, 100);
+      },
+    },
+  });
 
-  function checkScreenWidth() {
-    if (window.innerWidth < 1200) {
-      initSwiper();
-    } else {
-      destroySwiper();
-    }
-  }
-  checkScreenWidth();
-  window.addEventListener("resize", checkScreenWidth);
+  initDocumentsSwiper();
 });
 
-
-
-
-/////////////////////////////
-
+// слайдер personal
 const photoSlider = new Swiper('.personal__photo', {
   slidesPerView: 2.5,
   slidesPerGroup: 1,
@@ -230,29 +241,11 @@ const photoSlider = new Swiper('.personal__photo', {
     prevEl: '.personal__prev',
   },
   breakpoints: {
-
-    992: {
-      slidesPerView: 2.5,
-      spaceBetween: 20
-    },
-
-    768: {
-      slidesPerView: 3.5,
-      spaceBetween: 15
-    },
-
-    450: {
-      slidesPerView: 2.5,
-      spaceBetween: 10
-    },
-    320: {
-      slidesPerView: 1.5,
-      spaceBetween: 10
-    },
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 10
-    }
+    992: { slidesPerView: 2.5, spaceBetween: 20 },
+    768: { slidesPerView: 3.5, spaceBetween: 15 },
+    450: { slidesPerView: 2.5, spaceBetween: 10 },
+    320: { slidesPerView: 1.5, spaceBetween: 10 },
+    0: { slidesPerView: 1, spaceBetween: 10 }
   }
 });
 
@@ -260,10 +253,8 @@ const infoSlider = new Swiper('.personal__info', {
   slidesPerView: 1,
   slidesPerGroup: 1,
   effect: 'slide',
-  fadeEffect: {
-    crossFade: true,
-  },
-  speed: 500, // Плавная анимация
+  fadeEffect: { crossFade: true },
+  speed: 500,
   allowTouchMove: false,
 });
 
@@ -271,28 +262,10 @@ photoSlider.on('slideChange', () => {
   infoSlider.slideTo(photoSlider.realIndex);
 });
 
-
-
-
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-//вопросы 
-
+// вопросы
 const questionList = document.querySelector('.question-list');
-
 questionList.addEventListener('click', (event) => {
   const clickedItem = event.target.closest('.question-item');
-
   if (!clickedItem) return;
 
   document.querySelectorAll('.question-item').forEach(item => {
@@ -304,7 +277,6 @@ questionList.addEventListener('click', (event) => {
 
   clickedItem.classList.toggle('question-item--active');
   const textBlock = clickedItem.querySelector('.question-item__text');
-
   if (clickedItem.classList.contains('question-item--active')) {
     textBlock.style.maxHeight = textBlock.scrollHeight + "px";
   } else {
@@ -312,30 +284,7 @@ questionList.addEventListener('click', (event) => {
   }
 });
 
-
-
-
-
-//отзывы
-
-
-/*
-document.addEventListener("DOMContentLoaded", function () {
-  new Swiper(".reviews__inner", {
-    slidesPerView: 2, // Отображать два элемента
-    slidesPerGroup: 1, // Перелистывать по одному
-    spaceBetween: 20, // Отступы между слайдами
-    navigation: {
-      nextEl: ".reviews__next",
-      prevEl: ".reviews__prev",
-    },
-    loop: true, // Цикличный слайдер
-  });
-});
-
-
-*/
-
+// отзывы
 document.addEventListener("DOMContentLoaded", function () {
   new Swiper(".reviews__inner", {
     slidesPerView: 2,
@@ -347,26 +296,16 @@ document.addEventListener("DOMContentLoaded", function () {
       prevEl: ".reviews__prev",
     },
     breakpoints: {
-      992: {
-        slidesPerView: 2, // Для ширины 992px и больше показываем 2 слайда
-      },
-      0: {
-        slidesPerView: 1, // Для ширины меньше 992px показываем 1 слайд
-      }
+      992: { slidesPerView: 2 },
+      0: { slidesPerView: 1 },
     }
   });
 });
 
-
-
-
-//контейнер для personal после 992
-
+// контейнер для персонала после 992px
 const personalInner = document.querySelector('.personal__inner');
-
 function updateClass() {
   personalInner.classList.toggle('personal-container', window.innerWidth < 992);
 }
-
 window.addEventListener('resize', updateClass);
-updateClass(); 
+updateClass();

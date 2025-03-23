@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Алковрач</title>
+  <title>Срочный вызов</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -34,12 +34,21 @@
           </button>
           <nav class="menu">
             <ul class="menu__list">
-              <li class="menu__item"><a class="menu__link" href="#">Услуги</a></li>
-              <li class="menu__item"><a class="menu__link" href="#">Этапы лечения</a></li>
-              <li class="menu__item"><a class="menu__link" href="#">О нас</a></li>
-              <li class="menu__item"><a class="menu__link" href="#">Отзывы</a></li>
-              <li class="menu__item"><a class="menu__link" href="#">Контакты</a></li>
-
+              <li class="menu__item">
+                <a class="menu__link" href="#service">Услуги</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#stage">Этапы лечения</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#about">О нас</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#reviews">Отзывы</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#contact">Контакты</a>
+              </li>
 
               <div class="contact contact-mobile">
                 <div class="contact__info contact__info-mobile">
@@ -65,6 +74,8 @@
 
 
   <main class="main">
+
+
     <section class="hero">
       <div class="container">
         <div class="hero__inner">
@@ -119,12 +130,10 @@
     </div>
 
 
-
-    <section class="service">
+    <section class="service" id="service">
       <div class="container">
         <h2 class="service__title section-title">Наши услуги</h2>
         <div class="service__inner">
-
           <div class="service__item">
             <img class="service__item-img" src="images/service/1.jpg" alt="врач с чек-листом">
             <h4 class="service__item-title">Cтандартная терапия</h4>
@@ -200,6 +209,7 @@
       </div>
     </section>
 
+
     <div class="modal" id="service-modal">
       <div class="modal__box">
         <button class="modal__close-btn" id="service-modal-close">
@@ -226,47 +236,49 @@
       </div>
     </div>
 
-    <section class="stage">
+
+    <section class="stage" id="stage">
       <div class="container">
-        <h2 class="stage__title section-title">Этапы лечения</h2>
-        <div class="stage__inner">
-          <div class="stage__item">
-            <img class="stage__item-img" src="images/stage/1.svg" alt="телефонная трубка">
-            <p class="stage__item-text">
-              Диагностика состояния
-            </p>
-          </div>
-          <div class="stage__item">
-            <img class="stage__item-img" src="images/stage/2.svg" alt="телефонная трубка">
-            <p class="stage__item-text">
-              Составление плана лечения
-            </p>
-          </div>
-          <div class="stage__item">
-            <img class="stage__item-img" src="images/stage/3.svg" alt="телефонная трубка">
-            <p class="stage__item-text">
-              Снятие симптомов
-            </p>
-          </div>
-          <div class="stage__item">
-            <img class="stage__item-img" src="images/stage/4.svg" alt="телефонная трубка">
-            <p class="stage__item-text">
-              Восстановление организма
-            </p>
-          </div>
-          <div class="stage__item">
-            <img class="stage__item-img" src="images/stage/5.svg" alt="телефонная трубка">
-            <p class="stage__item-text">
-              Бесплатные консультации
-            </p>
+        <div class="stage-container">
+          <h2 class="stage__title section-title">Этапы лечения</h2>
+          <div class="stage__inner">
+            <div class="stage__item">
+              <img class="stage__item-img" src="images/stage/1.svg" alt="телефонная трубка">
+              <p class="stage__item-text">
+                Диагностика состояния
+              </p>
+            </div>
+            <div class="stage__item">
+              <img class="stage__item-img" src="images/stage/2.svg" alt="телефонная трубка">
+              <p class="stage__item-text">
+                Составление плана лечения
+              </p>
+            </div>
+            <div class="stage__item">
+              <img class="stage__item-img" src="images/stage/3.svg" alt="телефонная трубка">
+              <p class="stage__item-text">
+                Снятие симптомов
+              </p>
+            </div>
+            <div class="stage__item">
+              <img class="stage__item-img" src="images/stage/4.svg" alt="телефонная трубка">
+              <p class="stage__item-text">
+                Восстановление организма
+              </p>
+            </div>
+            <div class="stage__item">
+              <img class="stage__item-img" src="images/stage/5.svg" alt="телефонная трубка">
+              <p class="stage__item-text">
+                Бесплатные консультации
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
 
-
-    <section class="about">
+    <section class="about" id="about">
       <div class="container">
 
         <div class="about__inner">
@@ -328,9 +340,7 @@
               <div class="about__slider-next swiper-button-next">
               </div>
             </div>
-
           </div>
-
           <div class="about__documents">
             <h3 class="about__documents-title">
               Имеем все необходимые документы для предоставления медицинских услуг:
@@ -360,11 +370,9 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
-
 
 
 
@@ -397,8 +405,6 @@
                 <div class="personal__info-details">Cпециализация: <span>Врач-Нарколог</span></div>
                 <div class="personal__info-details">Опыт работы: <span>25 лет</span></div>
               </div>
-
-
               <div class="personal__info-item swiper-slide">
                 <h4 class="personal__info-title">
                   Меринов Артём Вячеславович
@@ -420,7 +426,6 @@
                 <div class="personal__info-details">Cпециализация: <span>Врач-Нарколог</span></div>
                 <div class="personal__info-details">Опыт работы: <span>25 лет</span></div>
               </div>
-
             </div>
           </div>
           <div class="personal__btn">
@@ -428,11 +433,8 @@
             <div class="personal__next swiper-button-next"></div>
           </div>
         </div>
-
         <div class="personal__photo">
           <div class="swiper-wrapper">
-
-
             <div class="personal__photo-item swiper-slide">
               <img class="personal__photo-img" src="images/personal/1.jpg" alt="Доктор Меринов">
               <div class="personal__photo-info">
@@ -443,8 +445,6 @@
                 <div class="personal__info-details">Опыт работы: <span>12 лет</span></div>
               </div>
             </div>
-
-
             <div class="personal__photo-item swiper-slide">
               <img class="personal__photo-img" src="images/personal/2.jpg" alt="Доктор Иванова">
               <div class="personal__photo-info">
@@ -455,8 +455,6 @@
                 <div class="personal__info-details">Опыт работы: <span>10 лет</span></div>
               </div>
             </div>
-
-
             <div class="personal__photo-item swiper-slide">
               <img class="personal__photo-img" src="images/personal/3.jpg" alt="Доктор Петров">
               <div class="personal__photo-info">
@@ -467,8 +465,6 @@
                 <div class="personal__info-details">Опыт работы: <span>25 лет</span></div>
               </div>
             </div>
-
-
             <div class="personal__photo-item swiper-slide">
               <img class="personal__photo-img" src="images/personal/1.jpg" alt="Доктор Меринов">
               <div class="personal__photo-info">
@@ -479,8 +475,6 @@
                 <div class="personal__info-details">Опыт работы: <span>12 лет</span></div>
               </div>
             </div>
-
-
             <div class="personal__photo-item swiper-slide">
               <img class="personal__photo-img" src="images/personal/2.jpg" alt="Доктор Иванова">
               <div class="personal__photo-info">
@@ -491,8 +485,6 @@
                 <div class="personal__info-details">Опыт работы: <span>10 лет</span></div>
               </div>
             </div>
-
-
             <div class="personal__photo-item swiper-slide">
               <img class="personal__photo-img" src="images/personal/3.jpg" alt="Доктор Петров">
               <div class="personal__photo-info">
@@ -503,8 +495,6 @@
                 <div class="personal__info-details">Опыт работы: <span>25 лет</span></div>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
@@ -580,6 +570,7 @@
         </div>
       </div>
     </section>
+
 
     <section class="question">
       <div class="container">
@@ -693,7 +684,8 @@
       </div>
     </section>
 
-    <section class="reviews">
+
+    <section class="reviews" id="reviews">
       <div class="container">
         <h2 class="reviews__title section-title">
           Отзывы пациентов
@@ -769,8 +761,6 @@
                 <p>
                   Моему сыну 28 лет, но он начал злоупотреблять алкоголем, связался с компанией таких же неприятных
                   ребят,
-
-
                 </p>
               </div>
               <button class="reviews__btn">Читать полностью</button>
@@ -805,11 +795,9 @@
     </div>
 
 
-    <section class="bottom-form">
+    <section class="bottom-form" id="contact">
       <div class="container">
-
         <div class="bottom-form__inner">
-
           <div class="form-base bottom-form__right">
             <h2 class="form-base__title bottom-form__title section-title">
               Остались вопросы?
@@ -827,7 +815,6 @@
                   конфиденциальности</button></p>
             </form>
           </div>
-
           <div class="bottom-form__left">
             <div class="bottom-form__img">
               <img src="images/doctor-2.png">
@@ -836,10 +823,13 @@
         </div>
       </div>
     </section>
+
+
   </main>
 
+
   <footer class="footer">
-    <div class="cotainer">
+    <div class="container">
       <div class="footer-top">
         <p class="footer-top__text">
           Услуги предоставляются ООО «ДЕТОКС» по лицензии Л041-01177-91/00561129 от 02.02.2022 г. ОГРН - 1182375001511;
@@ -860,17 +850,15 @@
           информационный характер и не является публичной офертой.
         </p>
       </div>
-      <div class="footer-bottom">
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
         <p class="footer-bottom__text">
           Имеются противопоказания. Проконсультируйтесь с врачом.
         </p>
       </div>
     </div>
   </footer>
-
-
-
-
 
 
   <script src="js/main.min.js"></script>

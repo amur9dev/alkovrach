@@ -10,8 +10,8 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
+  overflow-x: hidden;
 }
-
 
 .section-title {
   font-size: 52px;
@@ -19,9 +19,6 @@ body {
   line-height: 55px;
   color: #383838;
 }
-
-
-
 
 .form-base {
 
@@ -43,7 +40,6 @@ body {
     flex-wrap: wrap;
     gap: 20px;
   }
-
 
   &__input {
     background-color: #FFFFFF;
