@@ -1,5 +1,4 @@
 const { src, dest, watch, parallel, series } = require('gulp');
-
 const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 const terser = require('gulp-terser').default;
@@ -79,8 +78,6 @@ exports.styles = styles;
 exports.scripts = scripts;
 exports.watching = watching;
 exports.browsersync = browsersync;
-exports.building = building;
-exports.cleanDist = cleanDist;
 
-exports.build = series(cleanDist, images, building);
+exports.build = series(images, building);
 exports.default = parallel(styles, scripts, browsersync, watching);
